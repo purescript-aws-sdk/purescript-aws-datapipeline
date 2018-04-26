@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -21,8 +20,8 @@ options = defaultOptions { unwrapSingleConstructors = true }
 -- | <p>Contains the parameters for ActivatePipeline.</p>
 newtype ActivatePipelineInput = ActivatePipelineInput 
   { "pipelineId" :: (Id')
-  , "parameterValues" :: NullOrUndefined (ParameterValueList)
-  , "startTimestamp" :: NullOrUndefined (Types.Timestamp)
+  , "parameterValues" :: Maybe (ParameterValueList)
+  , "startTimestamp" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeActivatePipelineInput :: Newtype ActivatePipelineInput _
 derive instance repGenericActivatePipelineInput :: Generic ActivatePipelineInput _
@@ -32,12 +31,12 @@ instance encodeActivatePipelineInput :: Encode ActivatePipelineInput where encod
 
 -- | Constructs ActivatePipelineInput from required parameters
 newActivatePipelineInput :: Id' -> ActivatePipelineInput
-newActivatePipelineInput _pipelineId = ActivatePipelineInput { "pipelineId": _pipelineId, "parameterValues": (NullOrUndefined Nothing), "startTimestamp": (NullOrUndefined Nothing) }
+newActivatePipelineInput _pipelineId = ActivatePipelineInput { "pipelineId": _pipelineId, "parameterValues": Nothing, "startTimestamp": Nothing }
 
 -- | Constructs ActivatePipelineInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newActivatePipelineInput' :: Id' -> ( { "pipelineId" :: (Id') , "parameterValues" :: NullOrUndefined (ParameterValueList) , "startTimestamp" :: NullOrUndefined (Types.Timestamp) } -> {"pipelineId" :: (Id') , "parameterValues" :: NullOrUndefined (ParameterValueList) , "startTimestamp" :: NullOrUndefined (Types.Timestamp) } ) -> ActivatePipelineInput
-newActivatePipelineInput' _pipelineId customize = (ActivatePipelineInput <<< customize) { "pipelineId": _pipelineId, "parameterValues": (NullOrUndefined Nothing), "startTimestamp": (NullOrUndefined Nothing) }
+newActivatePipelineInput' :: Id' -> ( { "pipelineId" :: (Id') , "parameterValues" :: Maybe (ParameterValueList) , "startTimestamp" :: Maybe (Types.Timestamp) } -> {"pipelineId" :: (Id') , "parameterValues" :: Maybe (ParameterValueList) , "startTimestamp" :: Maybe (Types.Timestamp) } ) -> ActivatePipelineInput
+newActivatePipelineInput' _pipelineId customize = (ActivatePipelineInput <<< customize) { "pipelineId": _pipelineId, "parameterValues": Nothing, "startTimestamp": Nothing }
 
 
 
@@ -87,8 +86,8 @@ instance encodeAddTagsOutput :: Encode AddTagsOutput where encode = genericEncod
 newtype CreatePipelineInput = CreatePipelineInput 
   { "name" :: (Id')
   , "uniqueId" :: (Id')
-  , "description" :: NullOrUndefined (String)
-  , "tags" :: NullOrUndefined (TagList')
+  , "description" :: Maybe (String)
+  , "tags" :: Maybe (TagList')
   }
 derive instance newtypeCreatePipelineInput :: Newtype CreatePipelineInput _
 derive instance repGenericCreatePipelineInput :: Generic CreatePipelineInput _
@@ -98,12 +97,12 @@ instance encodeCreatePipelineInput :: Encode CreatePipelineInput where encode = 
 
 -- | Constructs CreatePipelineInput from required parameters
 newCreatePipelineInput :: Id' -> Id' -> CreatePipelineInput
-newCreatePipelineInput _name _uniqueId = CreatePipelineInput { "name": _name, "uniqueId": _uniqueId, "description": (NullOrUndefined Nothing), "tags": (NullOrUndefined Nothing) }
+newCreatePipelineInput _name _uniqueId = CreatePipelineInput { "name": _name, "uniqueId": _uniqueId, "description": Nothing, "tags": Nothing }
 
 -- | Constructs CreatePipelineInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreatePipelineInput' :: Id' -> Id' -> ( { "name" :: (Id') , "uniqueId" :: (Id') , "description" :: NullOrUndefined (String) , "tags" :: NullOrUndefined (TagList') } -> {"name" :: (Id') , "uniqueId" :: (Id') , "description" :: NullOrUndefined (String) , "tags" :: NullOrUndefined (TagList') } ) -> CreatePipelineInput
-newCreatePipelineInput' _name _uniqueId customize = (CreatePipelineInput <<< customize) { "name": _name, "uniqueId": _uniqueId, "description": (NullOrUndefined Nothing), "tags": (NullOrUndefined Nothing) }
+newCreatePipelineInput' :: Id' -> Id' -> ( { "name" :: (Id') , "uniqueId" :: (Id') , "description" :: Maybe (String) , "tags" :: Maybe (TagList') } -> {"name" :: (Id') , "uniqueId" :: (Id') , "description" :: Maybe (String) , "tags" :: Maybe (TagList') } ) -> CreatePipelineInput
+newCreatePipelineInput' _name _uniqueId customize = (CreatePipelineInput <<< customize) { "name": _name, "uniqueId": _uniqueId, "description": Nothing, "tags": Nothing }
 
 
 
@@ -131,7 +130,7 @@ newCreatePipelineOutput' _pipelineId customize = (CreatePipelineOutput <<< custo
 -- | <p>Contains the parameters for DeactivatePipeline.</p>
 newtype DeactivatePipelineInput = DeactivatePipelineInput 
   { "pipelineId" :: (Id')
-  , "cancelActive" :: NullOrUndefined (CancelActive')
+  , "cancelActive" :: Maybe (CancelActive')
   }
 derive instance newtypeDeactivatePipelineInput :: Newtype DeactivatePipelineInput _
 derive instance repGenericDeactivatePipelineInput :: Generic DeactivatePipelineInput _
@@ -141,12 +140,12 @@ instance encodeDeactivatePipelineInput :: Encode DeactivatePipelineInput where e
 
 -- | Constructs DeactivatePipelineInput from required parameters
 newDeactivatePipelineInput :: Id' -> DeactivatePipelineInput
-newDeactivatePipelineInput _pipelineId = DeactivatePipelineInput { "pipelineId": _pipelineId, "cancelActive": (NullOrUndefined Nothing) }
+newDeactivatePipelineInput _pipelineId = DeactivatePipelineInput { "pipelineId": _pipelineId, "cancelActive": Nothing }
 
 -- | Constructs DeactivatePipelineInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeactivatePipelineInput' :: Id' -> ( { "pipelineId" :: (Id') , "cancelActive" :: NullOrUndefined (CancelActive') } -> {"pipelineId" :: (Id') , "cancelActive" :: NullOrUndefined (CancelActive') } ) -> DeactivatePipelineInput
-newDeactivatePipelineInput' _pipelineId customize = (DeactivatePipelineInput <<< customize) { "pipelineId": _pipelineId, "cancelActive": (NullOrUndefined Nothing) }
+newDeactivatePipelineInput' :: Id' -> ( { "pipelineId" :: (Id') , "cancelActive" :: Maybe (CancelActive') } -> {"pipelineId" :: (Id') , "cancelActive" :: Maybe (CancelActive') } ) -> DeactivatePipelineInput
+newDeactivatePipelineInput' _pipelineId customize = (DeactivatePipelineInput <<< customize) { "pipelineId": _pipelineId, "cancelActive": Nothing }
 
 
 
@@ -185,8 +184,8 @@ newDeletePipelineInput' _pipelineId customize = (DeletePipelineInput <<< customi
 newtype DescribeObjectsInput = DescribeObjectsInput 
   { "pipelineId" :: (Id')
   , "objectIds" :: (IdList')
-  , "evaluateExpressions" :: NullOrUndefined (Boolean)
-  , "marker" :: NullOrUndefined (String)
+  , "evaluateExpressions" :: Maybe (Boolean)
+  , "marker" :: Maybe (String)
   }
 derive instance newtypeDescribeObjectsInput :: Newtype DescribeObjectsInput _
 derive instance repGenericDescribeObjectsInput :: Generic DescribeObjectsInput _
@@ -196,20 +195,20 @@ instance encodeDescribeObjectsInput :: Encode DescribeObjectsInput where encode 
 
 -- | Constructs DescribeObjectsInput from required parameters
 newDescribeObjectsInput :: IdList' -> Id' -> DescribeObjectsInput
-newDescribeObjectsInput _objectIds _pipelineId = DescribeObjectsInput { "objectIds": _objectIds, "pipelineId": _pipelineId, "evaluateExpressions": (NullOrUndefined Nothing), "marker": (NullOrUndefined Nothing) }
+newDescribeObjectsInput _objectIds _pipelineId = DescribeObjectsInput { "objectIds": _objectIds, "pipelineId": _pipelineId, "evaluateExpressions": Nothing, "marker": Nothing }
 
 -- | Constructs DescribeObjectsInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeObjectsInput' :: IdList' -> Id' -> ( { "pipelineId" :: (Id') , "objectIds" :: (IdList') , "evaluateExpressions" :: NullOrUndefined (Boolean) , "marker" :: NullOrUndefined (String) } -> {"pipelineId" :: (Id') , "objectIds" :: (IdList') , "evaluateExpressions" :: NullOrUndefined (Boolean) , "marker" :: NullOrUndefined (String) } ) -> DescribeObjectsInput
-newDescribeObjectsInput' _objectIds _pipelineId customize = (DescribeObjectsInput <<< customize) { "objectIds": _objectIds, "pipelineId": _pipelineId, "evaluateExpressions": (NullOrUndefined Nothing), "marker": (NullOrUndefined Nothing) }
+newDescribeObjectsInput' :: IdList' -> Id' -> ( { "pipelineId" :: (Id') , "objectIds" :: (IdList') , "evaluateExpressions" :: Maybe (Boolean) , "marker" :: Maybe (String) } -> {"pipelineId" :: (Id') , "objectIds" :: (IdList') , "evaluateExpressions" :: Maybe (Boolean) , "marker" :: Maybe (String) } ) -> DescribeObjectsInput
+newDescribeObjectsInput' _objectIds _pipelineId customize = (DescribeObjectsInput <<< customize) { "objectIds": _objectIds, "pipelineId": _pipelineId, "evaluateExpressions": Nothing, "marker": Nothing }
 
 
 
 -- | <p>Contains the output of DescribeObjects.</p>
 newtype DescribeObjectsOutput = DescribeObjectsOutput 
   { "pipelineObjects" :: (PipelineObjectList)
-  , "marker" :: NullOrUndefined (String)
-  , "hasMoreResults" :: NullOrUndefined (Boolean)
+  , "marker" :: Maybe (String)
+  , "hasMoreResults" :: Maybe (Boolean)
   }
 derive instance newtypeDescribeObjectsOutput :: Newtype DescribeObjectsOutput _
 derive instance repGenericDescribeObjectsOutput :: Generic DescribeObjectsOutput _
@@ -219,12 +218,12 @@ instance encodeDescribeObjectsOutput :: Encode DescribeObjectsOutput where encod
 
 -- | Constructs DescribeObjectsOutput from required parameters
 newDescribeObjectsOutput :: PipelineObjectList -> DescribeObjectsOutput
-newDescribeObjectsOutput _pipelineObjects = DescribeObjectsOutput { "pipelineObjects": _pipelineObjects, "hasMoreResults": (NullOrUndefined Nothing), "marker": (NullOrUndefined Nothing) }
+newDescribeObjectsOutput _pipelineObjects = DescribeObjectsOutput { "pipelineObjects": _pipelineObjects, "hasMoreResults": Nothing, "marker": Nothing }
 
 -- | Constructs DescribeObjectsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeObjectsOutput' :: PipelineObjectList -> ( { "pipelineObjects" :: (PipelineObjectList) , "marker" :: NullOrUndefined (String) , "hasMoreResults" :: NullOrUndefined (Boolean) } -> {"pipelineObjects" :: (PipelineObjectList) , "marker" :: NullOrUndefined (String) , "hasMoreResults" :: NullOrUndefined (Boolean) } ) -> DescribeObjectsOutput
-newDescribeObjectsOutput' _pipelineObjects customize = (DescribeObjectsOutput <<< customize) { "pipelineObjects": _pipelineObjects, "hasMoreResults": (NullOrUndefined Nothing), "marker": (NullOrUndefined Nothing) }
+newDescribeObjectsOutput' :: PipelineObjectList -> ( { "pipelineObjects" :: (PipelineObjectList) , "marker" :: Maybe (String) , "hasMoreResults" :: Maybe (Boolean) } -> {"pipelineObjects" :: (PipelineObjectList) , "marker" :: Maybe (String) , "hasMoreResults" :: Maybe (Boolean) } ) -> DescribeObjectsOutput
+newDescribeObjectsOutput' _pipelineObjects customize = (DescribeObjectsOutput <<< customize) { "pipelineObjects": _pipelineObjects, "hasMoreResults": Nothing, "marker": Nothing }
 
 
 
@@ -317,8 +316,8 @@ newEvaluateExpressionOutput' _evaluatedExpression customize = (EvaluateExpressio
 -- | <p>A key-value pair that describes a property of a pipeline object. The value is specified as either a string value (<code>StringValue</code>) or a reference to another object (<code>RefValue</code>) but not as both.</p>
 newtype Field = Field 
   { "key" :: (FieldNameString')
-  , "stringValue" :: NullOrUndefined (FieldStringValue')
-  , "refValue" :: NullOrUndefined (FieldNameString')
+  , "stringValue" :: Maybe (FieldStringValue')
+  , "refValue" :: Maybe (FieldNameString')
   }
 derive instance newtypeField :: Newtype Field _
 derive instance repGenericField :: Generic Field _
@@ -328,19 +327,19 @@ instance encodeField :: Encode Field where encode = genericEncode options
 
 -- | Constructs Field from required parameters
 newField :: FieldNameString' -> Field
-newField _key = Field { "key": _key, "refValue": (NullOrUndefined Nothing), "stringValue": (NullOrUndefined Nothing) }
+newField _key = Field { "key": _key, "refValue": Nothing, "stringValue": Nothing }
 
 -- | Constructs Field's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newField' :: FieldNameString' -> ( { "key" :: (FieldNameString') , "stringValue" :: NullOrUndefined (FieldStringValue') , "refValue" :: NullOrUndefined (FieldNameString') } -> {"key" :: (FieldNameString') , "stringValue" :: NullOrUndefined (FieldStringValue') , "refValue" :: NullOrUndefined (FieldNameString') } ) -> Field
-newField' _key customize = (Field <<< customize) { "key": _key, "refValue": (NullOrUndefined Nothing), "stringValue": (NullOrUndefined Nothing) }
+newField' :: FieldNameString' -> ( { "key" :: (FieldNameString') , "stringValue" :: Maybe (FieldStringValue') , "refValue" :: Maybe (FieldNameString') } -> {"key" :: (FieldNameString') , "stringValue" :: Maybe (FieldStringValue') , "refValue" :: Maybe (FieldNameString') } ) -> Field
+newField' _key customize = (Field <<< customize) { "key": _key, "refValue": Nothing, "stringValue": Nothing }
 
 
 
 -- | <p>Contains the parameters for GetPipelineDefinition.</p>
 newtype GetPipelineDefinitionInput = GetPipelineDefinitionInput 
   { "pipelineId" :: (Id')
-  , "version" :: NullOrUndefined (String)
+  , "version" :: Maybe (String)
   }
 derive instance newtypeGetPipelineDefinitionInput :: Newtype GetPipelineDefinitionInput _
 derive instance repGenericGetPipelineDefinitionInput :: Generic GetPipelineDefinitionInput _
@@ -350,20 +349,20 @@ instance encodeGetPipelineDefinitionInput :: Encode GetPipelineDefinitionInput w
 
 -- | Constructs GetPipelineDefinitionInput from required parameters
 newGetPipelineDefinitionInput :: Id' -> GetPipelineDefinitionInput
-newGetPipelineDefinitionInput _pipelineId = GetPipelineDefinitionInput { "pipelineId": _pipelineId, "version": (NullOrUndefined Nothing) }
+newGetPipelineDefinitionInput _pipelineId = GetPipelineDefinitionInput { "pipelineId": _pipelineId, "version": Nothing }
 
 -- | Constructs GetPipelineDefinitionInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetPipelineDefinitionInput' :: Id' -> ( { "pipelineId" :: (Id') , "version" :: NullOrUndefined (String) } -> {"pipelineId" :: (Id') , "version" :: NullOrUndefined (String) } ) -> GetPipelineDefinitionInput
-newGetPipelineDefinitionInput' _pipelineId customize = (GetPipelineDefinitionInput <<< customize) { "pipelineId": _pipelineId, "version": (NullOrUndefined Nothing) }
+newGetPipelineDefinitionInput' :: Id' -> ( { "pipelineId" :: (Id') , "version" :: Maybe (String) } -> {"pipelineId" :: (Id') , "version" :: Maybe (String) } ) -> GetPipelineDefinitionInput
+newGetPipelineDefinitionInput' _pipelineId customize = (GetPipelineDefinitionInput <<< customize) { "pipelineId": _pipelineId, "version": Nothing }
 
 
 
 -- | <p>Contains the output of GetPipelineDefinition.</p>
 newtype GetPipelineDefinitionOutput = GetPipelineDefinitionOutput 
-  { "pipelineObjects" :: NullOrUndefined (PipelineObjectList)
-  , "parameterObjects" :: NullOrUndefined (ParameterObjectList)
-  , "parameterValues" :: NullOrUndefined (ParameterValueList)
+  { "pipelineObjects" :: Maybe (PipelineObjectList)
+  , "parameterObjects" :: Maybe (ParameterObjectList)
+  , "parameterValues" :: Maybe (ParameterValueList)
   }
 derive instance newtypeGetPipelineDefinitionOutput :: Newtype GetPipelineDefinitionOutput _
 derive instance repGenericGetPipelineDefinitionOutput :: Generic GetPipelineDefinitionOutput _
@@ -373,19 +372,19 @@ instance encodeGetPipelineDefinitionOutput :: Encode GetPipelineDefinitionOutput
 
 -- | Constructs GetPipelineDefinitionOutput from required parameters
 newGetPipelineDefinitionOutput :: GetPipelineDefinitionOutput
-newGetPipelineDefinitionOutput  = GetPipelineDefinitionOutput { "parameterObjects": (NullOrUndefined Nothing), "parameterValues": (NullOrUndefined Nothing), "pipelineObjects": (NullOrUndefined Nothing) }
+newGetPipelineDefinitionOutput  = GetPipelineDefinitionOutput { "parameterObjects": Nothing, "parameterValues": Nothing, "pipelineObjects": Nothing }
 
 -- | Constructs GetPipelineDefinitionOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetPipelineDefinitionOutput' :: ( { "pipelineObjects" :: NullOrUndefined (PipelineObjectList) , "parameterObjects" :: NullOrUndefined (ParameterObjectList) , "parameterValues" :: NullOrUndefined (ParameterValueList) } -> {"pipelineObjects" :: NullOrUndefined (PipelineObjectList) , "parameterObjects" :: NullOrUndefined (ParameterObjectList) , "parameterValues" :: NullOrUndefined (ParameterValueList) } ) -> GetPipelineDefinitionOutput
-newGetPipelineDefinitionOutput'  customize = (GetPipelineDefinitionOutput <<< customize) { "parameterObjects": (NullOrUndefined Nothing), "parameterValues": (NullOrUndefined Nothing), "pipelineObjects": (NullOrUndefined Nothing) }
+newGetPipelineDefinitionOutput' :: ( { "pipelineObjects" :: Maybe (PipelineObjectList) , "parameterObjects" :: Maybe (ParameterObjectList) , "parameterValues" :: Maybe (ParameterValueList) } -> {"pipelineObjects" :: Maybe (PipelineObjectList) , "parameterObjects" :: Maybe (ParameterObjectList) , "parameterValues" :: Maybe (ParameterValueList) } ) -> GetPipelineDefinitionOutput
+newGetPipelineDefinitionOutput'  customize = (GetPipelineDefinitionOutput <<< customize) { "parameterObjects": Nothing, "parameterValues": Nothing, "pipelineObjects": Nothing }
 
 
 
 -- | <p><p>Identity information for the EC2 instance that is hosting the task runner. You can get this value by calling a metadata URI from the EC2 instance. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html">Instance Metadata</a> in the <i>Amazon Elastic Compute Cloud User Guide.</i> Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline.</p></p>
 newtype InstanceIdentity = InstanceIdentity 
-  { "document" :: NullOrUndefined (String)
-  , "signature" :: NullOrUndefined (String)
+  { "document" :: Maybe (String)
+  , "signature" :: Maybe (String)
   }
 derive instance newtypeInstanceIdentity :: Newtype InstanceIdentity _
 derive instance repGenericInstanceIdentity :: Generic InstanceIdentity _
@@ -395,18 +394,18 @@ instance encodeInstanceIdentity :: Encode InstanceIdentity where encode = generi
 
 -- | Constructs InstanceIdentity from required parameters
 newInstanceIdentity :: InstanceIdentity
-newInstanceIdentity  = InstanceIdentity { "document": (NullOrUndefined Nothing), "signature": (NullOrUndefined Nothing) }
+newInstanceIdentity  = InstanceIdentity { "document": Nothing, "signature": Nothing }
 
 -- | Constructs InstanceIdentity's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInstanceIdentity' :: ( { "document" :: NullOrUndefined (String) , "signature" :: NullOrUndefined (String) } -> {"document" :: NullOrUndefined (String) , "signature" :: NullOrUndefined (String) } ) -> InstanceIdentity
-newInstanceIdentity'  customize = (InstanceIdentity <<< customize) { "document": (NullOrUndefined Nothing), "signature": (NullOrUndefined Nothing) }
+newInstanceIdentity' :: ( { "document" :: Maybe (String) , "signature" :: Maybe (String) } -> {"document" :: Maybe (String) , "signature" :: Maybe (String) } ) -> InstanceIdentity
+newInstanceIdentity'  customize = (InstanceIdentity <<< customize) { "document": Nothing, "signature": Nothing }
 
 
 
 -- | <p>An internal service error occurred.</p>
 newtype InternalServiceError = InternalServiceError 
-  { "message" :: NullOrUndefined (ErrorMessage')
+  { "message" :: Maybe (ErrorMessage')
   }
 derive instance newtypeInternalServiceError :: Newtype InternalServiceError _
 derive instance repGenericInternalServiceError :: Generic InternalServiceError _
@@ -416,18 +415,18 @@ instance encodeInternalServiceError :: Encode InternalServiceError where encode 
 
 -- | Constructs InternalServiceError from required parameters
 newInternalServiceError :: InternalServiceError
-newInternalServiceError  = InternalServiceError { "message": (NullOrUndefined Nothing) }
+newInternalServiceError  = InternalServiceError { "message": Nothing }
 
 -- | Constructs InternalServiceError's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInternalServiceError' :: ( { "message" :: NullOrUndefined (ErrorMessage') } -> {"message" :: NullOrUndefined (ErrorMessage') } ) -> InternalServiceError
-newInternalServiceError'  customize = (InternalServiceError <<< customize) { "message": (NullOrUndefined Nothing) }
+newInternalServiceError' :: ( { "message" :: Maybe (ErrorMessage') } -> {"message" :: Maybe (ErrorMessage') } ) -> InternalServiceError
+newInternalServiceError'  customize = (InternalServiceError <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
 newtype InvalidRequestException = InvalidRequestException 
-  { "message" :: NullOrUndefined (ErrorMessage')
+  { "message" :: Maybe (ErrorMessage')
   }
 derive instance newtypeInvalidRequestException :: Newtype InvalidRequestException _
 derive instance repGenericInvalidRequestException :: Generic InvalidRequestException _
@@ -437,18 +436,18 @@ instance encodeInvalidRequestException :: Encode InvalidRequestException where e
 
 -- | Constructs InvalidRequestException from required parameters
 newInvalidRequestException :: InvalidRequestException
-newInvalidRequestException  = InvalidRequestException { "message": (NullOrUndefined Nothing) }
+newInvalidRequestException  = InvalidRequestException { "message": Nothing }
 
 -- | Constructs InvalidRequestException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidRequestException' :: ( { "message" :: NullOrUndefined (ErrorMessage') } -> {"message" :: NullOrUndefined (ErrorMessage') } ) -> InvalidRequestException
-newInvalidRequestException'  customize = (InvalidRequestException <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidRequestException' :: ( { "message" :: Maybe (ErrorMessage') } -> {"message" :: Maybe (ErrorMessage') } ) -> InvalidRequestException
+newInvalidRequestException'  customize = (InvalidRequestException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>Contains the parameters for ListPipelines.</p>
 newtype ListPipelinesInput = ListPipelinesInput 
-  { "marker" :: NullOrUndefined (String)
+  { "marker" :: Maybe (String)
   }
 derive instance newtypeListPipelinesInput :: Newtype ListPipelinesInput _
 derive instance repGenericListPipelinesInput :: Generic ListPipelinesInput _
@@ -458,20 +457,20 @@ instance encodeListPipelinesInput :: Encode ListPipelinesInput where encode = ge
 
 -- | Constructs ListPipelinesInput from required parameters
 newListPipelinesInput :: ListPipelinesInput
-newListPipelinesInput  = ListPipelinesInput { "marker": (NullOrUndefined Nothing) }
+newListPipelinesInput  = ListPipelinesInput { "marker": Nothing }
 
 -- | Constructs ListPipelinesInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListPipelinesInput' :: ( { "marker" :: NullOrUndefined (String) } -> {"marker" :: NullOrUndefined (String) } ) -> ListPipelinesInput
-newListPipelinesInput'  customize = (ListPipelinesInput <<< customize) { "marker": (NullOrUndefined Nothing) }
+newListPipelinesInput' :: ( { "marker" :: Maybe (String) } -> {"marker" :: Maybe (String) } ) -> ListPipelinesInput
+newListPipelinesInput'  customize = (ListPipelinesInput <<< customize) { "marker": Nothing }
 
 
 
 -- | <p>Contains the output of ListPipelines.</p>
 newtype ListPipelinesOutput = ListPipelinesOutput 
   { "pipelineIdList" :: (PipelineList')
-  , "marker" :: NullOrUndefined (String)
-  , "hasMoreResults" :: NullOrUndefined (Boolean)
+  , "marker" :: Maybe (String)
+  , "hasMoreResults" :: Maybe (Boolean)
   }
 derive instance newtypeListPipelinesOutput :: Newtype ListPipelinesOutput _
 derive instance repGenericListPipelinesOutput :: Generic ListPipelinesOutput _
@@ -481,19 +480,19 @@ instance encodeListPipelinesOutput :: Encode ListPipelinesOutput where encode = 
 
 -- | Constructs ListPipelinesOutput from required parameters
 newListPipelinesOutput :: PipelineList' -> ListPipelinesOutput
-newListPipelinesOutput _pipelineIdList = ListPipelinesOutput { "pipelineIdList": _pipelineIdList, "hasMoreResults": (NullOrUndefined Nothing), "marker": (NullOrUndefined Nothing) }
+newListPipelinesOutput _pipelineIdList = ListPipelinesOutput { "pipelineIdList": _pipelineIdList, "hasMoreResults": Nothing, "marker": Nothing }
 
 -- | Constructs ListPipelinesOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListPipelinesOutput' :: PipelineList' -> ( { "pipelineIdList" :: (PipelineList') , "marker" :: NullOrUndefined (String) , "hasMoreResults" :: NullOrUndefined (Boolean) } -> {"pipelineIdList" :: (PipelineList') , "marker" :: NullOrUndefined (String) , "hasMoreResults" :: NullOrUndefined (Boolean) } ) -> ListPipelinesOutput
-newListPipelinesOutput' _pipelineIdList customize = (ListPipelinesOutput <<< customize) { "pipelineIdList": _pipelineIdList, "hasMoreResults": (NullOrUndefined Nothing), "marker": (NullOrUndefined Nothing) }
+newListPipelinesOutput' :: PipelineList' -> ( { "pipelineIdList" :: (PipelineList') , "marker" :: Maybe (String) , "hasMoreResults" :: Maybe (Boolean) } -> {"pipelineIdList" :: (PipelineList') , "marker" :: Maybe (String) , "hasMoreResults" :: Maybe (Boolean) } ) -> ListPipelinesOutput
+newListPipelinesOutput' _pipelineIdList customize = (ListPipelinesOutput <<< customize) { "pipelineIdList": _pipelineIdList, "hasMoreResults": Nothing, "marker": Nothing }
 
 
 
 -- | <p>Contains a logical operation for comparing the value of a field with a specified value.</p>
 newtype Operator = Operator 
-  { "type" :: NullOrUndefined (OperatorType)
-  , "values" :: NullOrUndefined (StringList')
+  { "type" :: Maybe (OperatorType)
+  , "values" :: Maybe (StringList')
   }
 derive instance newtypeOperator :: Newtype Operator _
 derive instance repGenericOperator :: Generic Operator _
@@ -503,12 +502,12 @@ instance encodeOperator :: Encode Operator where encode = genericEncode options
 
 -- | Constructs Operator from required parameters
 newOperator :: Operator
-newOperator  = Operator { "type": (NullOrUndefined Nothing), "values": (NullOrUndefined Nothing) }
+newOperator  = Operator { "type": Nothing, "values": Nothing }
 
 -- | Constructs Operator's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newOperator' :: ( { "type" :: NullOrUndefined (OperatorType) , "values" :: NullOrUndefined (StringList') } -> {"type" :: NullOrUndefined (OperatorType) , "values" :: NullOrUndefined (StringList') } ) -> Operator
-newOperator'  customize = (Operator <<< customize) { "type": (NullOrUndefined Nothing), "values": (NullOrUndefined Nothing) }
+newOperator' :: ( { "type" :: Maybe (OperatorType) , "values" :: Maybe (StringList') } -> {"type" :: Maybe (OperatorType) , "values" :: Maybe (StringList') } ) -> Operator
+newOperator'  customize = (Operator <<< customize) { "type": Nothing, "values": Nothing }
 
 
 
@@ -616,7 +615,7 @@ instance encodeParameterValueList :: Encode ParameterValueList where encode = ge
 
 -- | <p>The specified pipeline has been deleted.</p>
 newtype PipelineDeletedException = PipelineDeletedException 
-  { "message" :: NullOrUndefined (ErrorMessage')
+  { "message" :: Maybe (ErrorMessage')
   }
 derive instance newtypePipelineDeletedException :: Newtype PipelineDeletedException _
 derive instance repGenericPipelineDeletedException :: Generic PipelineDeletedException _
@@ -626,12 +625,12 @@ instance encodePipelineDeletedException :: Encode PipelineDeletedException where
 
 -- | Constructs PipelineDeletedException from required parameters
 newPipelineDeletedException :: PipelineDeletedException
-newPipelineDeletedException  = PipelineDeletedException { "message": (NullOrUndefined Nothing) }
+newPipelineDeletedException  = PipelineDeletedException { "message": Nothing }
 
 -- | Constructs PipelineDeletedException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPipelineDeletedException' :: ( { "message" :: NullOrUndefined (ErrorMessage') } -> {"message" :: NullOrUndefined (ErrorMessage') } ) -> PipelineDeletedException
-newPipelineDeletedException'  customize = (PipelineDeletedException <<< customize) { "message": (NullOrUndefined Nothing) }
+newPipelineDeletedException' :: ( { "message" :: Maybe (ErrorMessage') } -> {"message" :: Maybe (ErrorMessage') } ) -> PipelineDeletedException
+newPipelineDeletedException'  customize = (PipelineDeletedException <<< customize) { "message": Nothing }
 
 
 
@@ -640,8 +639,8 @@ newtype PipelineDescription = PipelineDescription
   { "pipelineId" :: (Id')
   , "name" :: (Id')
   , "fields" :: (FieldList')
-  , "description" :: NullOrUndefined (String)
-  , "tags" :: NullOrUndefined (TagList')
+  , "description" :: Maybe (String)
+  , "tags" :: Maybe (TagList')
   }
 derive instance newtypePipelineDescription :: Newtype PipelineDescription _
 derive instance repGenericPipelineDescription :: Generic PipelineDescription _
@@ -651,12 +650,12 @@ instance encodePipelineDescription :: Encode PipelineDescription where encode = 
 
 -- | Constructs PipelineDescription from required parameters
 newPipelineDescription :: FieldList' -> Id' -> Id' -> PipelineDescription
-newPipelineDescription _fields _name _pipelineId = PipelineDescription { "fields": _fields, "name": _name, "pipelineId": _pipelineId, "description": (NullOrUndefined Nothing), "tags": (NullOrUndefined Nothing) }
+newPipelineDescription _fields _name _pipelineId = PipelineDescription { "fields": _fields, "name": _name, "pipelineId": _pipelineId, "description": Nothing, "tags": Nothing }
 
 -- | Constructs PipelineDescription's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPipelineDescription' :: FieldList' -> Id' -> Id' -> ( { "pipelineId" :: (Id') , "name" :: (Id') , "fields" :: (FieldList') , "description" :: NullOrUndefined (String) , "tags" :: NullOrUndefined (TagList') } -> {"pipelineId" :: (Id') , "name" :: (Id') , "fields" :: (FieldList') , "description" :: NullOrUndefined (String) , "tags" :: NullOrUndefined (TagList') } ) -> PipelineDescription
-newPipelineDescription' _fields _name _pipelineId customize = (PipelineDescription <<< customize) { "fields": _fields, "name": _name, "pipelineId": _pipelineId, "description": (NullOrUndefined Nothing), "tags": (NullOrUndefined Nothing) }
+newPipelineDescription' :: FieldList' -> Id' -> Id' -> ( { "pipelineId" :: (Id') , "name" :: (Id') , "fields" :: (FieldList') , "description" :: Maybe (String) , "tags" :: Maybe (TagList') } -> {"pipelineId" :: (Id') , "name" :: (Id') , "fields" :: (FieldList') , "description" :: Maybe (String) , "tags" :: Maybe (TagList') } ) -> PipelineDescription
+newPipelineDescription' _fields _name _pipelineId customize = (PipelineDescription <<< customize) { "fields": _fields, "name": _name, "pipelineId": _pipelineId, "description": Nothing, "tags": Nothing }
 
 
 
@@ -671,8 +670,8 @@ instance encodePipelineDescriptionList :: Encode PipelineDescriptionList where e
 
 -- | <p>Contains the name and identifier of a pipeline.</p>
 newtype PipelineIdName = PipelineIdName 
-  { "id" :: NullOrUndefined (Id')
-  , "name" :: NullOrUndefined (Id')
+  { "id" :: Maybe (Id')
+  , "name" :: Maybe (Id')
   }
 derive instance newtypePipelineIdName :: Newtype PipelineIdName _
 derive instance repGenericPipelineIdName :: Generic PipelineIdName _
@@ -682,18 +681,18 @@ instance encodePipelineIdName :: Encode PipelineIdName where encode = genericEnc
 
 -- | Constructs PipelineIdName from required parameters
 newPipelineIdName :: PipelineIdName
-newPipelineIdName  = PipelineIdName { "id": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing) }
+newPipelineIdName  = PipelineIdName { "id": Nothing, "name": Nothing }
 
 -- | Constructs PipelineIdName's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPipelineIdName' :: ( { "id" :: NullOrUndefined (Id') , "name" :: NullOrUndefined (Id') } -> {"id" :: NullOrUndefined (Id') , "name" :: NullOrUndefined (Id') } ) -> PipelineIdName
-newPipelineIdName'  customize = (PipelineIdName <<< customize) { "id": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing) }
+newPipelineIdName' :: ( { "id" :: Maybe (Id') , "name" :: Maybe (Id') } -> {"id" :: Maybe (Id') , "name" :: Maybe (Id') } ) -> PipelineIdName
+newPipelineIdName'  customize = (PipelineIdName <<< customize) { "id": Nothing, "name": Nothing }
 
 
 
 -- | <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
 newtype PipelineNotFoundException = PipelineNotFoundException 
-  { "message" :: NullOrUndefined (ErrorMessage')
+  { "message" :: Maybe (ErrorMessage')
   }
 derive instance newtypePipelineNotFoundException :: Newtype PipelineNotFoundException _
 derive instance repGenericPipelineNotFoundException :: Generic PipelineNotFoundException _
@@ -703,12 +702,12 @@ instance encodePipelineNotFoundException :: Encode PipelineNotFoundException whe
 
 -- | Constructs PipelineNotFoundException from required parameters
 newPipelineNotFoundException :: PipelineNotFoundException
-newPipelineNotFoundException  = PipelineNotFoundException { "message": (NullOrUndefined Nothing) }
+newPipelineNotFoundException  = PipelineNotFoundException { "message": Nothing }
 
 -- | Constructs PipelineNotFoundException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPipelineNotFoundException' :: ( { "message" :: NullOrUndefined (ErrorMessage') } -> {"message" :: NullOrUndefined (ErrorMessage') } ) -> PipelineNotFoundException
-newPipelineNotFoundException'  customize = (PipelineNotFoundException <<< customize) { "message": (NullOrUndefined Nothing) }
+newPipelineNotFoundException' :: ( { "message" :: Maybe (ErrorMessage') } -> {"message" :: Maybe (ErrorMessage') } ) -> PipelineNotFoundException
+newPipelineNotFoundException'  customize = (PipelineNotFoundException <<< customize) { "message": Nothing }
 
 
 
@@ -756,8 +755,8 @@ instance encodePipelineObjectMap :: Encode PipelineObjectMap where encode = gene
 -- | <p>Contains the parameters for PollForTask.</p>
 newtype PollForTaskInput = PollForTaskInput 
   { "workerGroup" :: (String)
-  , "hostname" :: NullOrUndefined (Id')
-  , "instanceIdentity" :: NullOrUndefined (InstanceIdentity)
+  , "hostname" :: Maybe (Id')
+  , "instanceIdentity" :: Maybe (InstanceIdentity)
   }
 derive instance newtypePollForTaskInput :: Newtype PollForTaskInput _
 derive instance repGenericPollForTaskInput :: Generic PollForTaskInput _
@@ -767,18 +766,18 @@ instance encodePollForTaskInput :: Encode PollForTaskInput where encode = generi
 
 -- | Constructs PollForTaskInput from required parameters
 newPollForTaskInput :: String -> PollForTaskInput
-newPollForTaskInput _workerGroup = PollForTaskInput { "workerGroup": _workerGroup, "hostname": (NullOrUndefined Nothing), "instanceIdentity": (NullOrUndefined Nothing) }
+newPollForTaskInput _workerGroup = PollForTaskInput { "workerGroup": _workerGroup, "hostname": Nothing, "instanceIdentity": Nothing }
 
 -- | Constructs PollForTaskInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPollForTaskInput' :: String -> ( { "workerGroup" :: (String) , "hostname" :: NullOrUndefined (Id') , "instanceIdentity" :: NullOrUndefined (InstanceIdentity) } -> {"workerGroup" :: (String) , "hostname" :: NullOrUndefined (Id') , "instanceIdentity" :: NullOrUndefined (InstanceIdentity) } ) -> PollForTaskInput
-newPollForTaskInput' _workerGroup customize = (PollForTaskInput <<< customize) { "workerGroup": _workerGroup, "hostname": (NullOrUndefined Nothing), "instanceIdentity": (NullOrUndefined Nothing) }
+newPollForTaskInput' :: String -> ( { "workerGroup" :: (String) , "hostname" :: Maybe (Id') , "instanceIdentity" :: Maybe (InstanceIdentity) } -> {"workerGroup" :: (String) , "hostname" :: Maybe (Id') , "instanceIdentity" :: Maybe (InstanceIdentity) } ) -> PollForTaskInput
+newPollForTaskInput' _workerGroup customize = (PollForTaskInput <<< customize) { "workerGroup": _workerGroup, "hostname": Nothing, "instanceIdentity": Nothing }
 
 
 
 -- | <p>Contains the output of PollForTask.</p>
 newtype PollForTaskOutput = PollForTaskOutput 
-  { "taskObject" :: NullOrUndefined (TaskObject)
+  { "taskObject" :: Maybe (TaskObject)
   }
 derive instance newtypePollForTaskOutput :: Newtype PollForTaskOutput _
 derive instance repGenericPollForTaskOutput :: Generic PollForTaskOutput _
@@ -788,12 +787,12 @@ instance encodePollForTaskOutput :: Encode PollForTaskOutput where encode = gene
 
 -- | Constructs PollForTaskOutput from required parameters
 newPollForTaskOutput :: PollForTaskOutput
-newPollForTaskOutput  = PollForTaskOutput { "taskObject": (NullOrUndefined Nothing) }
+newPollForTaskOutput  = PollForTaskOutput { "taskObject": Nothing }
 
 -- | Constructs PollForTaskOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPollForTaskOutput' :: ( { "taskObject" :: NullOrUndefined (TaskObject) } -> {"taskObject" :: NullOrUndefined (TaskObject) } ) -> PollForTaskOutput
-newPollForTaskOutput'  customize = (PollForTaskOutput <<< customize) { "taskObject": (NullOrUndefined Nothing) }
+newPollForTaskOutput' :: ( { "taskObject" :: Maybe (TaskObject) } -> {"taskObject" :: Maybe (TaskObject) } ) -> PollForTaskOutput
+newPollForTaskOutput'  customize = (PollForTaskOutput <<< customize) { "taskObject": Nothing }
 
 
 
@@ -801,8 +800,8 @@ newPollForTaskOutput'  customize = (PollForTaskOutput <<< customize) { "taskObje
 newtype PutPipelineDefinitionInput = PutPipelineDefinitionInput 
   { "pipelineId" :: (Id')
   , "pipelineObjects" :: (PipelineObjectList)
-  , "parameterObjects" :: NullOrUndefined (ParameterObjectList)
-  , "parameterValues" :: NullOrUndefined (ParameterValueList)
+  , "parameterObjects" :: Maybe (ParameterObjectList)
+  , "parameterValues" :: Maybe (ParameterValueList)
   }
 derive instance newtypePutPipelineDefinitionInput :: Newtype PutPipelineDefinitionInput _
 derive instance repGenericPutPipelineDefinitionInput :: Generic PutPipelineDefinitionInput _
@@ -812,19 +811,19 @@ instance encodePutPipelineDefinitionInput :: Encode PutPipelineDefinitionInput w
 
 -- | Constructs PutPipelineDefinitionInput from required parameters
 newPutPipelineDefinitionInput :: Id' -> PipelineObjectList -> PutPipelineDefinitionInput
-newPutPipelineDefinitionInput _pipelineId _pipelineObjects = PutPipelineDefinitionInput { "pipelineId": _pipelineId, "pipelineObjects": _pipelineObjects, "parameterObjects": (NullOrUndefined Nothing), "parameterValues": (NullOrUndefined Nothing) }
+newPutPipelineDefinitionInput _pipelineId _pipelineObjects = PutPipelineDefinitionInput { "pipelineId": _pipelineId, "pipelineObjects": _pipelineObjects, "parameterObjects": Nothing, "parameterValues": Nothing }
 
 -- | Constructs PutPipelineDefinitionInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutPipelineDefinitionInput' :: Id' -> PipelineObjectList -> ( { "pipelineId" :: (Id') , "pipelineObjects" :: (PipelineObjectList) , "parameterObjects" :: NullOrUndefined (ParameterObjectList) , "parameterValues" :: NullOrUndefined (ParameterValueList) } -> {"pipelineId" :: (Id') , "pipelineObjects" :: (PipelineObjectList) , "parameterObjects" :: NullOrUndefined (ParameterObjectList) , "parameterValues" :: NullOrUndefined (ParameterValueList) } ) -> PutPipelineDefinitionInput
-newPutPipelineDefinitionInput' _pipelineId _pipelineObjects customize = (PutPipelineDefinitionInput <<< customize) { "pipelineId": _pipelineId, "pipelineObjects": _pipelineObjects, "parameterObjects": (NullOrUndefined Nothing), "parameterValues": (NullOrUndefined Nothing) }
+newPutPipelineDefinitionInput' :: Id' -> PipelineObjectList -> ( { "pipelineId" :: (Id') , "pipelineObjects" :: (PipelineObjectList) , "parameterObjects" :: Maybe (ParameterObjectList) , "parameterValues" :: Maybe (ParameterValueList) } -> {"pipelineId" :: (Id') , "pipelineObjects" :: (PipelineObjectList) , "parameterObjects" :: Maybe (ParameterObjectList) , "parameterValues" :: Maybe (ParameterValueList) } ) -> PutPipelineDefinitionInput
+newPutPipelineDefinitionInput' _pipelineId _pipelineObjects customize = (PutPipelineDefinitionInput <<< customize) { "pipelineId": _pipelineId, "pipelineObjects": _pipelineObjects, "parameterObjects": Nothing, "parameterValues": Nothing }
 
 
 
 -- | <p>Contains the output of PutPipelineDefinition.</p>
 newtype PutPipelineDefinitionOutput = PutPipelineDefinitionOutput 
-  { "validationErrors" :: NullOrUndefined (ValidationErrors)
-  , "validationWarnings" :: NullOrUndefined (ValidationWarnings)
+  { "validationErrors" :: Maybe (ValidationErrors)
+  , "validationWarnings" :: Maybe (ValidationWarnings)
   , "errored" :: (Boolean)
   }
 derive instance newtypePutPipelineDefinitionOutput :: Newtype PutPipelineDefinitionOutput _
@@ -835,18 +834,18 @@ instance encodePutPipelineDefinitionOutput :: Encode PutPipelineDefinitionOutput
 
 -- | Constructs PutPipelineDefinitionOutput from required parameters
 newPutPipelineDefinitionOutput :: Boolean -> PutPipelineDefinitionOutput
-newPutPipelineDefinitionOutput _errored = PutPipelineDefinitionOutput { "errored": _errored, "validationErrors": (NullOrUndefined Nothing), "validationWarnings": (NullOrUndefined Nothing) }
+newPutPipelineDefinitionOutput _errored = PutPipelineDefinitionOutput { "errored": _errored, "validationErrors": Nothing, "validationWarnings": Nothing }
 
 -- | Constructs PutPipelineDefinitionOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutPipelineDefinitionOutput' :: Boolean -> ( { "validationErrors" :: NullOrUndefined (ValidationErrors) , "validationWarnings" :: NullOrUndefined (ValidationWarnings) , "errored" :: (Boolean) } -> {"validationErrors" :: NullOrUndefined (ValidationErrors) , "validationWarnings" :: NullOrUndefined (ValidationWarnings) , "errored" :: (Boolean) } ) -> PutPipelineDefinitionOutput
-newPutPipelineDefinitionOutput' _errored customize = (PutPipelineDefinitionOutput <<< customize) { "errored": _errored, "validationErrors": (NullOrUndefined Nothing), "validationWarnings": (NullOrUndefined Nothing) }
+newPutPipelineDefinitionOutput' :: Boolean -> ( { "validationErrors" :: Maybe (ValidationErrors) , "validationWarnings" :: Maybe (ValidationWarnings) , "errored" :: (Boolean) } -> {"validationErrors" :: Maybe (ValidationErrors) , "validationWarnings" :: Maybe (ValidationWarnings) , "errored" :: (Boolean) } ) -> PutPipelineDefinitionOutput
+newPutPipelineDefinitionOutput' _errored customize = (PutPipelineDefinitionOutput <<< customize) { "errored": _errored, "validationErrors": Nothing, "validationWarnings": Nothing }
 
 
 
 -- | <p>Defines the query to run against an object.</p>
 newtype Query = Query 
-  { "selectors" :: NullOrUndefined (SelectorList)
+  { "selectors" :: Maybe (SelectorList)
   }
 derive instance newtypeQuery :: Newtype Query _
 derive instance repGenericQuery :: Generic Query _
@@ -856,22 +855,22 @@ instance encodeQuery :: Encode Query where encode = genericEncode options
 
 -- | Constructs Query from required parameters
 newQuery :: Query
-newQuery  = Query { "selectors": (NullOrUndefined Nothing) }
+newQuery  = Query { "selectors": Nothing }
 
 -- | Constructs Query's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newQuery' :: ( { "selectors" :: NullOrUndefined (SelectorList) } -> {"selectors" :: NullOrUndefined (SelectorList) } ) -> Query
-newQuery'  customize = (Query <<< customize) { "selectors": (NullOrUndefined Nothing) }
+newQuery' :: ( { "selectors" :: Maybe (SelectorList) } -> {"selectors" :: Maybe (SelectorList) } ) -> Query
+newQuery'  customize = (Query <<< customize) { "selectors": Nothing }
 
 
 
 -- | <p>Contains the parameters for QueryObjects.</p>
 newtype QueryObjectsInput = QueryObjectsInput 
   { "pipelineId" :: (Id')
-  , "query" :: NullOrUndefined (Query)
+  , "query" :: Maybe (Query)
   , "sphere" :: (String)
-  , "marker" :: NullOrUndefined (String)
-  , "limit" :: NullOrUndefined (Int)
+  , "marker" :: Maybe (String)
+  , "limit" :: Maybe (Int)
   }
 derive instance newtypeQueryObjectsInput :: Newtype QueryObjectsInput _
 derive instance repGenericQueryObjectsInput :: Generic QueryObjectsInput _
@@ -881,20 +880,20 @@ instance encodeQueryObjectsInput :: Encode QueryObjectsInput where encode = gene
 
 -- | Constructs QueryObjectsInput from required parameters
 newQueryObjectsInput :: Id' -> String -> QueryObjectsInput
-newQueryObjectsInput _pipelineId _sphere = QueryObjectsInput { "pipelineId": _pipelineId, "sphere": _sphere, "limit": (NullOrUndefined Nothing), "marker": (NullOrUndefined Nothing), "query": (NullOrUndefined Nothing) }
+newQueryObjectsInput _pipelineId _sphere = QueryObjectsInput { "pipelineId": _pipelineId, "sphere": _sphere, "limit": Nothing, "marker": Nothing, "query": Nothing }
 
 -- | Constructs QueryObjectsInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newQueryObjectsInput' :: Id' -> String -> ( { "pipelineId" :: (Id') , "query" :: NullOrUndefined (Query) , "sphere" :: (String) , "marker" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (Int) } -> {"pipelineId" :: (Id') , "query" :: NullOrUndefined (Query) , "sphere" :: (String) , "marker" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (Int) } ) -> QueryObjectsInput
-newQueryObjectsInput' _pipelineId _sphere customize = (QueryObjectsInput <<< customize) { "pipelineId": _pipelineId, "sphere": _sphere, "limit": (NullOrUndefined Nothing), "marker": (NullOrUndefined Nothing), "query": (NullOrUndefined Nothing) }
+newQueryObjectsInput' :: Id' -> String -> ( { "pipelineId" :: (Id') , "query" :: Maybe (Query) , "sphere" :: (String) , "marker" :: Maybe (String) , "limit" :: Maybe (Int) } -> {"pipelineId" :: (Id') , "query" :: Maybe (Query) , "sphere" :: (String) , "marker" :: Maybe (String) , "limit" :: Maybe (Int) } ) -> QueryObjectsInput
+newQueryObjectsInput' _pipelineId _sphere customize = (QueryObjectsInput <<< customize) { "pipelineId": _pipelineId, "sphere": _sphere, "limit": Nothing, "marker": Nothing, "query": Nothing }
 
 
 
 -- | <p>Contains the output of QueryObjects.</p>
 newtype QueryObjectsOutput = QueryObjectsOutput 
-  { "ids" :: NullOrUndefined (IdList')
-  , "marker" :: NullOrUndefined (String)
-  , "hasMoreResults" :: NullOrUndefined (Boolean)
+  { "ids" :: Maybe (IdList')
+  , "marker" :: Maybe (String)
+  , "hasMoreResults" :: Maybe (Boolean)
   }
 derive instance newtypeQueryObjectsOutput :: Newtype QueryObjectsOutput _
 derive instance repGenericQueryObjectsOutput :: Generic QueryObjectsOutput _
@@ -904,12 +903,12 @@ instance encodeQueryObjectsOutput :: Encode QueryObjectsOutput where encode = ge
 
 -- | Constructs QueryObjectsOutput from required parameters
 newQueryObjectsOutput :: QueryObjectsOutput
-newQueryObjectsOutput  = QueryObjectsOutput { "hasMoreResults": (NullOrUndefined Nothing), "ids": (NullOrUndefined Nothing), "marker": (NullOrUndefined Nothing) }
+newQueryObjectsOutput  = QueryObjectsOutput { "hasMoreResults": Nothing, "ids": Nothing, "marker": Nothing }
 
 -- | Constructs QueryObjectsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newQueryObjectsOutput' :: ( { "ids" :: NullOrUndefined (IdList') , "marker" :: NullOrUndefined (String) , "hasMoreResults" :: NullOrUndefined (Boolean) } -> {"ids" :: NullOrUndefined (IdList') , "marker" :: NullOrUndefined (String) , "hasMoreResults" :: NullOrUndefined (Boolean) } ) -> QueryObjectsOutput
-newQueryObjectsOutput'  customize = (QueryObjectsOutput <<< customize) { "hasMoreResults": (NullOrUndefined Nothing), "ids": (NullOrUndefined Nothing), "marker": (NullOrUndefined Nothing) }
+newQueryObjectsOutput' :: ( { "ids" :: Maybe (IdList') , "marker" :: Maybe (String) , "hasMoreResults" :: Maybe (Boolean) } -> {"ids" :: Maybe (IdList') , "marker" :: Maybe (String) , "hasMoreResults" :: Maybe (Boolean) } ) -> QueryObjectsOutput
+newQueryObjectsOutput'  customize = (QueryObjectsOutput <<< customize) { "hasMoreResults": Nothing, "ids": Nothing, "marker": Nothing }
 
 
 
@@ -948,7 +947,7 @@ instance encodeRemoveTagsOutput :: Encode RemoveTagsOutput where encode = generi
 -- | <p>Contains the parameters for ReportTaskProgress.</p>
 newtype ReportTaskProgressInput = ReportTaskProgressInput 
   { "taskId" :: (TaskId')
-  , "fields" :: NullOrUndefined (FieldList')
+  , "fields" :: Maybe (FieldList')
   }
 derive instance newtypeReportTaskProgressInput :: Newtype ReportTaskProgressInput _
 derive instance repGenericReportTaskProgressInput :: Generic ReportTaskProgressInput _
@@ -958,12 +957,12 @@ instance encodeReportTaskProgressInput :: Encode ReportTaskProgressInput where e
 
 -- | Constructs ReportTaskProgressInput from required parameters
 newReportTaskProgressInput :: TaskId' -> ReportTaskProgressInput
-newReportTaskProgressInput _taskId = ReportTaskProgressInput { "taskId": _taskId, "fields": (NullOrUndefined Nothing) }
+newReportTaskProgressInput _taskId = ReportTaskProgressInput { "taskId": _taskId, "fields": Nothing }
 
 -- | Constructs ReportTaskProgressInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newReportTaskProgressInput' :: TaskId' -> ( { "taskId" :: (TaskId') , "fields" :: NullOrUndefined (FieldList') } -> {"taskId" :: (TaskId') , "fields" :: NullOrUndefined (FieldList') } ) -> ReportTaskProgressInput
-newReportTaskProgressInput' _taskId customize = (ReportTaskProgressInput <<< customize) { "taskId": _taskId, "fields": (NullOrUndefined Nothing) }
+newReportTaskProgressInput' :: TaskId' -> ( { "taskId" :: (TaskId') , "fields" :: Maybe (FieldList') } -> {"taskId" :: (TaskId') , "fields" :: Maybe (FieldList') } ) -> ReportTaskProgressInput
+newReportTaskProgressInput' _taskId customize = (ReportTaskProgressInput <<< customize) { "taskId": _taskId, "fields": Nothing }
 
 
 
@@ -991,8 +990,8 @@ newReportTaskProgressOutput' _canceled customize = (ReportTaskProgressOutput <<<
 -- | <p>Contains the parameters for ReportTaskRunnerHeartbeat.</p>
 newtype ReportTaskRunnerHeartbeatInput = ReportTaskRunnerHeartbeatInput 
   { "taskrunnerId" :: (Id')
-  , "workerGroup" :: NullOrUndefined (String)
-  , "hostname" :: NullOrUndefined (Id')
+  , "workerGroup" :: Maybe (String)
+  , "hostname" :: Maybe (Id')
   }
 derive instance newtypeReportTaskRunnerHeartbeatInput :: Newtype ReportTaskRunnerHeartbeatInput _
 derive instance repGenericReportTaskRunnerHeartbeatInput :: Generic ReportTaskRunnerHeartbeatInput _
@@ -1002,12 +1001,12 @@ instance encodeReportTaskRunnerHeartbeatInput :: Encode ReportTaskRunnerHeartbea
 
 -- | Constructs ReportTaskRunnerHeartbeatInput from required parameters
 newReportTaskRunnerHeartbeatInput :: Id' -> ReportTaskRunnerHeartbeatInput
-newReportTaskRunnerHeartbeatInput _taskrunnerId = ReportTaskRunnerHeartbeatInput { "taskrunnerId": _taskrunnerId, "hostname": (NullOrUndefined Nothing), "workerGroup": (NullOrUndefined Nothing) }
+newReportTaskRunnerHeartbeatInput _taskrunnerId = ReportTaskRunnerHeartbeatInput { "taskrunnerId": _taskrunnerId, "hostname": Nothing, "workerGroup": Nothing }
 
 -- | Constructs ReportTaskRunnerHeartbeatInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newReportTaskRunnerHeartbeatInput' :: Id' -> ( { "taskrunnerId" :: (Id') , "workerGroup" :: NullOrUndefined (String) , "hostname" :: NullOrUndefined (Id') } -> {"taskrunnerId" :: (Id') , "workerGroup" :: NullOrUndefined (String) , "hostname" :: NullOrUndefined (Id') } ) -> ReportTaskRunnerHeartbeatInput
-newReportTaskRunnerHeartbeatInput' _taskrunnerId customize = (ReportTaskRunnerHeartbeatInput <<< customize) { "taskrunnerId": _taskrunnerId, "hostname": (NullOrUndefined Nothing), "workerGroup": (NullOrUndefined Nothing) }
+newReportTaskRunnerHeartbeatInput' :: Id' -> ( { "taskrunnerId" :: (Id') , "workerGroup" :: Maybe (String) , "hostname" :: Maybe (Id') } -> {"taskrunnerId" :: (Id') , "workerGroup" :: Maybe (String) , "hostname" :: Maybe (Id') } ) -> ReportTaskRunnerHeartbeatInput
+newReportTaskRunnerHeartbeatInput' _taskrunnerId customize = (ReportTaskRunnerHeartbeatInput <<< customize) { "taskrunnerId": _taskrunnerId, "hostname": Nothing, "workerGroup": Nothing }
 
 
 
@@ -1034,8 +1033,8 @@ newReportTaskRunnerHeartbeatOutput' _terminate customize = (ReportTaskRunnerHear
 
 -- | <p>A comparision that is used to determine whether a query should return this object.</p>
 newtype Selector = Selector 
-  { "fieldName" :: NullOrUndefined (String)
-  , "operator" :: NullOrUndefined (Operator)
+  { "fieldName" :: Maybe (String)
+  , "operator" :: Maybe (Operator)
   }
 derive instance newtypeSelector :: Newtype Selector _
 derive instance repGenericSelector :: Generic Selector _
@@ -1045,12 +1044,12 @@ instance encodeSelector :: Encode Selector where encode = genericEncode options
 
 -- | Constructs Selector from required parameters
 newSelector :: Selector
-newSelector  = Selector { "fieldName": (NullOrUndefined Nothing), "operator": (NullOrUndefined Nothing) }
+newSelector  = Selector { "fieldName": Nothing, "operator": Nothing }
 
 -- | Constructs Selector's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newSelector' :: ( { "fieldName" :: NullOrUndefined (String) , "operator" :: NullOrUndefined (Operator) } -> {"fieldName" :: NullOrUndefined (String) , "operator" :: NullOrUndefined (Operator) } ) -> Selector
-newSelector'  customize = (Selector <<< customize) { "fieldName": (NullOrUndefined Nothing), "operator": (NullOrUndefined Nothing) }
+newSelector' :: ( { "fieldName" :: Maybe (String) , "operator" :: Maybe (Operator) } -> {"fieldName" :: Maybe (String) , "operator" :: Maybe (Operator) } ) -> Selector
+newSelector'  customize = (Selector <<< customize) { "fieldName": Nothing, "operator": Nothing }
 
 
 
@@ -1091,9 +1090,9 @@ newSetStatusInput' _objectIds _pipelineId _status customize = (SetStatusInput <<
 newtype SetTaskStatusInput = SetTaskStatusInput 
   { "taskId" :: (TaskId')
   , "taskStatus" :: (TaskStatus)
-  , "errorId" :: NullOrUndefined (String)
-  , "errorMessage" :: NullOrUndefined (ErrorMessage')
-  , "errorStackTrace" :: NullOrUndefined (String)
+  , "errorId" :: Maybe (String)
+  , "errorMessage" :: Maybe (ErrorMessage')
+  , "errorStackTrace" :: Maybe (String)
   }
 derive instance newtypeSetTaskStatusInput :: Newtype SetTaskStatusInput _
 derive instance repGenericSetTaskStatusInput :: Generic SetTaskStatusInput _
@@ -1103,12 +1102,12 @@ instance encodeSetTaskStatusInput :: Encode SetTaskStatusInput where encode = ge
 
 -- | Constructs SetTaskStatusInput from required parameters
 newSetTaskStatusInput :: TaskId' -> TaskStatus -> SetTaskStatusInput
-newSetTaskStatusInput _taskId _taskStatus = SetTaskStatusInput { "taskId": _taskId, "taskStatus": _taskStatus, "errorId": (NullOrUndefined Nothing), "errorMessage": (NullOrUndefined Nothing), "errorStackTrace": (NullOrUndefined Nothing) }
+newSetTaskStatusInput _taskId _taskStatus = SetTaskStatusInput { "taskId": _taskId, "taskStatus": _taskStatus, "errorId": Nothing, "errorMessage": Nothing, "errorStackTrace": Nothing }
 
 -- | Constructs SetTaskStatusInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newSetTaskStatusInput' :: TaskId' -> TaskStatus -> ( { "taskId" :: (TaskId') , "taskStatus" :: (TaskStatus) , "errorId" :: NullOrUndefined (String) , "errorMessage" :: NullOrUndefined (ErrorMessage') , "errorStackTrace" :: NullOrUndefined (String) } -> {"taskId" :: (TaskId') , "taskStatus" :: (TaskStatus) , "errorId" :: NullOrUndefined (String) , "errorMessage" :: NullOrUndefined (ErrorMessage') , "errorStackTrace" :: NullOrUndefined (String) } ) -> SetTaskStatusInput
-newSetTaskStatusInput' _taskId _taskStatus customize = (SetTaskStatusInput <<< customize) { "taskId": _taskId, "taskStatus": _taskStatus, "errorId": (NullOrUndefined Nothing), "errorMessage": (NullOrUndefined Nothing), "errorStackTrace": (NullOrUndefined Nothing) }
+newSetTaskStatusInput' :: TaskId' -> TaskStatus -> ( { "taskId" :: (TaskId') , "taskStatus" :: (TaskStatus) , "errorId" :: Maybe (String) , "errorMessage" :: Maybe (ErrorMessage') , "errorStackTrace" :: Maybe (String) } -> {"taskId" :: (TaskId') , "taskStatus" :: (TaskStatus) , "errorId" :: Maybe (String) , "errorMessage" :: Maybe (ErrorMessage') , "errorStackTrace" :: Maybe (String) } ) -> SetTaskStatusInput
+newSetTaskStatusInput' _taskId _taskStatus customize = (SetTaskStatusInput <<< customize) { "taskId": _taskId, "taskStatus": _taskStatus, "errorId": Nothing, "errorMessage": Nothing, "errorStackTrace": Nothing }
 
 
 
@@ -1146,7 +1145,7 @@ newTag' _key _value customize = (Tag <<< customize) { "key": _key, "value": _val
 
 -- | <p>The specified task was not found. </p>
 newtype TaskNotFoundException = TaskNotFoundException 
-  { "message" :: NullOrUndefined (ErrorMessage')
+  { "message" :: Maybe (ErrorMessage')
   }
 derive instance newtypeTaskNotFoundException :: Newtype TaskNotFoundException _
 derive instance repGenericTaskNotFoundException :: Generic TaskNotFoundException _
@@ -1156,21 +1155,21 @@ instance encodeTaskNotFoundException :: Encode TaskNotFoundException where encod
 
 -- | Constructs TaskNotFoundException from required parameters
 newTaskNotFoundException :: TaskNotFoundException
-newTaskNotFoundException  = TaskNotFoundException { "message": (NullOrUndefined Nothing) }
+newTaskNotFoundException  = TaskNotFoundException { "message": Nothing }
 
 -- | Constructs TaskNotFoundException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTaskNotFoundException' :: ( { "message" :: NullOrUndefined (ErrorMessage') } -> {"message" :: NullOrUndefined (ErrorMessage') } ) -> TaskNotFoundException
-newTaskNotFoundException'  customize = (TaskNotFoundException <<< customize) { "message": (NullOrUndefined Nothing) }
+newTaskNotFoundException' :: ( { "message" :: Maybe (ErrorMessage') } -> {"message" :: Maybe (ErrorMessage') } ) -> TaskNotFoundException
+newTaskNotFoundException'  customize = (TaskNotFoundException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>Contains information about a pipeline task that is assigned to a task runner.</p>
 newtype TaskObject = TaskObject 
-  { "taskId" :: NullOrUndefined (TaskId')
-  , "pipelineId" :: NullOrUndefined (Id')
-  , "attemptId" :: NullOrUndefined (Id')
-  , "objects" :: NullOrUndefined (PipelineObjectMap)
+  { "taskId" :: Maybe (TaskId')
+  , "pipelineId" :: Maybe (Id')
+  , "attemptId" :: Maybe (Id')
+  , "objects" :: Maybe (PipelineObjectMap)
   }
 derive instance newtypeTaskObject :: Newtype TaskObject _
 derive instance repGenericTaskObject :: Generic TaskObject _
@@ -1180,12 +1179,12 @@ instance encodeTaskObject :: Encode TaskObject where encode = genericEncode opti
 
 -- | Constructs TaskObject from required parameters
 newTaskObject :: TaskObject
-newTaskObject  = TaskObject { "attemptId": (NullOrUndefined Nothing), "objects": (NullOrUndefined Nothing), "pipelineId": (NullOrUndefined Nothing), "taskId": (NullOrUndefined Nothing) }
+newTaskObject  = TaskObject { "attemptId": Nothing, "objects": Nothing, "pipelineId": Nothing, "taskId": Nothing }
 
 -- | Constructs TaskObject's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTaskObject' :: ( { "taskId" :: NullOrUndefined (TaskId') , "pipelineId" :: NullOrUndefined (Id') , "attemptId" :: NullOrUndefined (Id') , "objects" :: NullOrUndefined (PipelineObjectMap) } -> {"taskId" :: NullOrUndefined (TaskId') , "pipelineId" :: NullOrUndefined (Id') , "attemptId" :: NullOrUndefined (Id') , "objects" :: NullOrUndefined (PipelineObjectMap) } ) -> TaskObject
-newTaskObject'  customize = (TaskObject <<< customize) { "attemptId": (NullOrUndefined Nothing), "objects": (NullOrUndefined Nothing), "pipelineId": (NullOrUndefined Nothing), "taskId": (NullOrUndefined Nothing) }
+newTaskObject' :: ( { "taskId" :: Maybe (TaskId') , "pipelineId" :: Maybe (Id') , "attemptId" :: Maybe (Id') , "objects" :: Maybe (PipelineObjectMap) } -> {"taskId" :: Maybe (TaskId') , "pipelineId" :: Maybe (Id') , "attemptId" :: Maybe (Id') , "objects" :: Maybe (PipelineObjectMap) } ) -> TaskObject
+newTaskObject'  customize = (TaskObject <<< customize) { "attemptId": Nothing, "objects": Nothing, "pipelineId": Nothing, "taskId": Nothing }
 
 
 
@@ -1202,8 +1201,8 @@ instance encodeTaskStatus :: Encode TaskStatus where encode = genericEncode opti
 newtype ValidatePipelineDefinitionInput = ValidatePipelineDefinitionInput 
   { "pipelineId" :: (Id')
   , "pipelineObjects" :: (PipelineObjectList)
-  , "parameterObjects" :: NullOrUndefined (ParameterObjectList)
-  , "parameterValues" :: NullOrUndefined (ParameterValueList)
+  , "parameterObjects" :: Maybe (ParameterObjectList)
+  , "parameterValues" :: Maybe (ParameterValueList)
   }
 derive instance newtypeValidatePipelineDefinitionInput :: Newtype ValidatePipelineDefinitionInput _
 derive instance repGenericValidatePipelineDefinitionInput :: Generic ValidatePipelineDefinitionInput _
@@ -1213,19 +1212,19 @@ instance encodeValidatePipelineDefinitionInput :: Encode ValidatePipelineDefinit
 
 -- | Constructs ValidatePipelineDefinitionInput from required parameters
 newValidatePipelineDefinitionInput :: Id' -> PipelineObjectList -> ValidatePipelineDefinitionInput
-newValidatePipelineDefinitionInput _pipelineId _pipelineObjects = ValidatePipelineDefinitionInput { "pipelineId": _pipelineId, "pipelineObjects": _pipelineObjects, "parameterObjects": (NullOrUndefined Nothing), "parameterValues": (NullOrUndefined Nothing) }
+newValidatePipelineDefinitionInput _pipelineId _pipelineObjects = ValidatePipelineDefinitionInput { "pipelineId": _pipelineId, "pipelineObjects": _pipelineObjects, "parameterObjects": Nothing, "parameterValues": Nothing }
 
 -- | Constructs ValidatePipelineDefinitionInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newValidatePipelineDefinitionInput' :: Id' -> PipelineObjectList -> ( { "pipelineId" :: (Id') , "pipelineObjects" :: (PipelineObjectList) , "parameterObjects" :: NullOrUndefined (ParameterObjectList) , "parameterValues" :: NullOrUndefined (ParameterValueList) } -> {"pipelineId" :: (Id') , "pipelineObjects" :: (PipelineObjectList) , "parameterObjects" :: NullOrUndefined (ParameterObjectList) , "parameterValues" :: NullOrUndefined (ParameterValueList) } ) -> ValidatePipelineDefinitionInput
-newValidatePipelineDefinitionInput' _pipelineId _pipelineObjects customize = (ValidatePipelineDefinitionInput <<< customize) { "pipelineId": _pipelineId, "pipelineObjects": _pipelineObjects, "parameterObjects": (NullOrUndefined Nothing), "parameterValues": (NullOrUndefined Nothing) }
+newValidatePipelineDefinitionInput' :: Id' -> PipelineObjectList -> ( { "pipelineId" :: (Id') , "pipelineObjects" :: (PipelineObjectList) , "parameterObjects" :: Maybe (ParameterObjectList) , "parameterValues" :: Maybe (ParameterValueList) } -> {"pipelineId" :: (Id') , "pipelineObjects" :: (PipelineObjectList) , "parameterObjects" :: Maybe (ParameterObjectList) , "parameterValues" :: Maybe (ParameterValueList) } ) -> ValidatePipelineDefinitionInput
+newValidatePipelineDefinitionInput' _pipelineId _pipelineObjects customize = (ValidatePipelineDefinitionInput <<< customize) { "pipelineId": _pipelineId, "pipelineObjects": _pipelineObjects, "parameterObjects": Nothing, "parameterValues": Nothing }
 
 
 
 -- | <p>Contains the output of ValidatePipelineDefinition.</p>
 newtype ValidatePipelineDefinitionOutput = ValidatePipelineDefinitionOutput 
-  { "validationErrors" :: NullOrUndefined (ValidationErrors)
-  , "validationWarnings" :: NullOrUndefined (ValidationWarnings)
+  { "validationErrors" :: Maybe (ValidationErrors)
+  , "validationWarnings" :: Maybe (ValidationWarnings)
   , "errored" :: (Boolean)
   }
 derive instance newtypeValidatePipelineDefinitionOutput :: Newtype ValidatePipelineDefinitionOutput _
@@ -1236,19 +1235,19 @@ instance encodeValidatePipelineDefinitionOutput :: Encode ValidatePipelineDefini
 
 -- | Constructs ValidatePipelineDefinitionOutput from required parameters
 newValidatePipelineDefinitionOutput :: Boolean -> ValidatePipelineDefinitionOutput
-newValidatePipelineDefinitionOutput _errored = ValidatePipelineDefinitionOutput { "errored": _errored, "validationErrors": (NullOrUndefined Nothing), "validationWarnings": (NullOrUndefined Nothing) }
+newValidatePipelineDefinitionOutput _errored = ValidatePipelineDefinitionOutput { "errored": _errored, "validationErrors": Nothing, "validationWarnings": Nothing }
 
 -- | Constructs ValidatePipelineDefinitionOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newValidatePipelineDefinitionOutput' :: Boolean -> ( { "validationErrors" :: NullOrUndefined (ValidationErrors) , "validationWarnings" :: NullOrUndefined (ValidationWarnings) , "errored" :: (Boolean) } -> {"validationErrors" :: NullOrUndefined (ValidationErrors) , "validationWarnings" :: NullOrUndefined (ValidationWarnings) , "errored" :: (Boolean) } ) -> ValidatePipelineDefinitionOutput
-newValidatePipelineDefinitionOutput' _errored customize = (ValidatePipelineDefinitionOutput <<< customize) { "errored": _errored, "validationErrors": (NullOrUndefined Nothing), "validationWarnings": (NullOrUndefined Nothing) }
+newValidatePipelineDefinitionOutput' :: Boolean -> ( { "validationErrors" :: Maybe (ValidationErrors) , "validationWarnings" :: Maybe (ValidationWarnings) , "errored" :: (Boolean) } -> {"validationErrors" :: Maybe (ValidationErrors) , "validationWarnings" :: Maybe (ValidationWarnings) , "errored" :: (Boolean) } ) -> ValidatePipelineDefinitionOutput
+newValidatePipelineDefinitionOutput' _errored customize = (ValidatePipelineDefinitionOutput <<< customize) { "errored": _errored, "validationErrors": Nothing, "validationWarnings": Nothing }
 
 
 
 -- | <p>Defines a validation error. Validation errors prevent pipeline activation. The set of validation errors that can be returned are defined by AWS Data Pipeline.</p>
 newtype ValidationError = ValidationError 
-  { "id" :: NullOrUndefined (Id')
-  , "errors" :: NullOrUndefined (ValidationMessages')
+  { "id" :: Maybe (Id')
+  , "errors" :: Maybe (ValidationMessages')
   }
 derive instance newtypeValidationError :: Newtype ValidationError _
 derive instance repGenericValidationError :: Generic ValidationError _
@@ -1258,12 +1257,12 @@ instance encodeValidationError :: Encode ValidationError where encode = genericE
 
 -- | Constructs ValidationError from required parameters
 newValidationError :: ValidationError
-newValidationError  = ValidationError { "errors": (NullOrUndefined Nothing), "id": (NullOrUndefined Nothing) }
+newValidationError  = ValidationError { "errors": Nothing, "id": Nothing }
 
 -- | Constructs ValidationError's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newValidationError' :: ( { "id" :: NullOrUndefined (Id') , "errors" :: NullOrUndefined (ValidationMessages') } -> {"id" :: NullOrUndefined (Id') , "errors" :: NullOrUndefined (ValidationMessages') } ) -> ValidationError
-newValidationError'  customize = (ValidationError <<< customize) { "errors": (NullOrUndefined Nothing), "id": (NullOrUndefined Nothing) }
+newValidationError' :: ( { "id" :: Maybe (Id') , "errors" :: Maybe (ValidationMessages') } -> {"id" :: Maybe (Id') , "errors" :: Maybe (ValidationMessages') } ) -> ValidationError
+newValidationError'  customize = (ValidationError <<< customize) { "errors": Nothing, "id": Nothing }
 
 
 
@@ -1278,8 +1277,8 @@ instance encodeValidationErrors :: Encode ValidationErrors where encode = generi
 
 -- | <p>Defines a validation warning. Validation warnings do not prevent pipeline activation. The set of validation warnings that can be returned are defined by AWS Data Pipeline.</p>
 newtype ValidationWarning = ValidationWarning 
-  { "id" :: NullOrUndefined (Id')
-  , "warnings" :: NullOrUndefined (ValidationMessages')
+  { "id" :: Maybe (Id')
+  , "warnings" :: Maybe (ValidationMessages')
   }
 derive instance newtypeValidationWarning :: Newtype ValidationWarning _
 derive instance repGenericValidationWarning :: Generic ValidationWarning _
@@ -1289,12 +1288,12 @@ instance encodeValidationWarning :: Encode ValidationWarning where encode = gene
 
 -- | Constructs ValidationWarning from required parameters
 newValidationWarning :: ValidationWarning
-newValidationWarning  = ValidationWarning { "id": (NullOrUndefined Nothing), "warnings": (NullOrUndefined Nothing) }
+newValidationWarning  = ValidationWarning { "id": Nothing, "warnings": Nothing }
 
 -- | Constructs ValidationWarning's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newValidationWarning' :: ( { "id" :: NullOrUndefined (Id') , "warnings" :: NullOrUndefined (ValidationMessages') } -> {"id" :: NullOrUndefined (Id') , "warnings" :: NullOrUndefined (ValidationMessages') } ) -> ValidationWarning
-newValidationWarning'  customize = (ValidationWarning <<< customize) { "id": (NullOrUndefined Nothing), "warnings": (NullOrUndefined Nothing) }
+newValidationWarning' :: ( { "id" :: Maybe (Id') , "warnings" :: Maybe (ValidationMessages') } -> {"id" :: Maybe (Id') , "warnings" :: Maybe (ValidationMessages') } ) -> ValidationWarning
+newValidationWarning'  customize = (ValidationWarning <<< customize) { "id": Nothing, "warnings": Nothing }
 
 
 

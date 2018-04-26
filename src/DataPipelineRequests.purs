@@ -37,7 +37,7 @@ deactivatePipeline (DataPipeline.Service serviceImpl) = AWS.request serviceImpl 
 
 
 -- | <p>Deletes a pipeline, its pipeline definition, and its run history. AWS Data Pipeline attempts to cancel instances associated with the pipeline that are currently being processed by task runners.</p> <p>Deleting a pipeline cannot be undone. You cannot query or restore a deleted pipeline. To temporarily pause a pipeline instead of deleting it, call <a>SetStatus</a> with the status set to <code>PAUSE</code> on individual components. Components that are paused by <a>SetStatus</a> can be resumed.</p>
-deletePipeline :: forall eff. DataPipeline.Service -> DataPipelineTypes.DeletePipelineInput -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deletePipeline :: forall eff. DataPipeline.Service -> DataPipelineTypes.DeletePipelineInput -> Aff (exception :: EXCEPTION | eff) Unit
 deletePipeline (DataPipeline.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deletePipeline"
 
@@ -109,7 +109,7 @@ reportTaskRunnerHeartbeat (DataPipeline.Service serviceImpl) = AWS.request servi
 
 
 -- | <p>Requests that the status of the specified physical or logical pipeline objects be updated in the specified pipeline. This update might not occur immediately, but is eventually consistent. The status that can be set depends on the type of object (for example, DataNode or Activity). You cannot perform this operation on <code>FINISHED</code> pipelines and attempting to do so returns <code>InvalidRequestException</code>.</p>
-setStatus :: forall eff. DataPipeline.Service -> DataPipelineTypes.SetStatusInput -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+setStatus :: forall eff. DataPipeline.Service -> DataPipelineTypes.SetStatusInput -> Aff (exception :: EXCEPTION | eff) Unit
 setStatus (DataPipeline.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "setStatus"
 

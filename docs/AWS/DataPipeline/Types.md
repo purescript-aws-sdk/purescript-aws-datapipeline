@@ -10,7 +10,7 @@ options :: Options
 
 ``` purescript
 newtype ActivatePipelineInput
-  = ActivatePipelineInput { pipelineId :: Id', parameterValues :: NullOrUndefined (ParameterValueList), startTimestamp :: NullOrUndefined (Timestamp) }
+  = ActivatePipelineInput { pipelineId :: Id', parameterValues :: Maybe (ParameterValueList), startTimestamp :: Maybe (Timestamp) }
 ```
 
 <p>Contains the parameters for ActivatePipeline.</p>
@@ -35,7 +35,7 @@ Constructs ActivatePipelineInput from required parameters
 #### `newActivatePipelineInput'`
 
 ``` purescript
-newActivatePipelineInput' :: Id' -> ({ pipelineId :: Id', parameterValues :: NullOrUndefined (ParameterValueList), startTimestamp :: NullOrUndefined (Timestamp) } -> { pipelineId :: Id', parameterValues :: NullOrUndefined (ParameterValueList), startTimestamp :: NullOrUndefined (Timestamp) }) -> ActivatePipelineInput
+newActivatePipelineInput' :: Id' -> ({ pipelineId :: Id', parameterValues :: Maybe (ParameterValueList), startTimestamp :: Maybe (Timestamp) } -> { pipelineId :: Id', parameterValues :: Maybe (ParameterValueList), startTimestamp :: Maybe (Timestamp) }) -> ActivatePipelineInput
 ```
 
 Constructs ActivatePipelineInput's fields from required parameters
@@ -114,7 +114,7 @@ Encode AddTagsOutput
 
 ``` purescript
 newtype CreatePipelineInput
-  = CreatePipelineInput { name :: Id', uniqueId :: Id', description :: NullOrUndefined (String), tags :: NullOrUndefined (TagList') }
+  = CreatePipelineInput { name :: Id', uniqueId :: Id', description :: Maybe (String), tags :: Maybe (TagList') }
 ```
 
 <p>Contains the parameters for CreatePipeline.</p>
@@ -139,7 +139,7 @@ Constructs CreatePipelineInput from required parameters
 #### `newCreatePipelineInput'`
 
 ``` purescript
-newCreatePipelineInput' :: Id' -> Id' -> ({ name :: Id', uniqueId :: Id', description :: NullOrUndefined (String), tags :: NullOrUndefined (TagList') } -> { name :: Id', uniqueId :: Id', description :: NullOrUndefined (String), tags :: NullOrUndefined (TagList') }) -> CreatePipelineInput
+newCreatePipelineInput' :: Id' -> Id' -> ({ name :: Id', uniqueId :: Id', description :: Maybe (String), tags :: Maybe (TagList') } -> { name :: Id', uniqueId :: Id', description :: Maybe (String), tags :: Maybe (TagList') }) -> CreatePipelineInput
 ```
 
 Constructs CreatePipelineInput's fields from required parameters
@@ -182,7 +182,7 @@ Constructs CreatePipelineOutput's fields from required parameters
 
 ``` purescript
 newtype DeactivatePipelineInput
-  = DeactivatePipelineInput { pipelineId :: Id', cancelActive :: NullOrUndefined (CancelActive') }
+  = DeactivatePipelineInput { pipelineId :: Id', cancelActive :: Maybe (CancelActive') }
 ```
 
 <p>Contains the parameters for DeactivatePipeline.</p>
@@ -207,7 +207,7 @@ Constructs DeactivatePipelineInput from required parameters
 #### `newDeactivatePipelineInput'`
 
 ``` purescript
-newDeactivatePipelineInput' :: Id' -> ({ pipelineId :: Id', cancelActive :: NullOrUndefined (CancelActive') } -> { pipelineId :: Id', cancelActive :: NullOrUndefined (CancelActive') }) -> DeactivatePipelineInput
+newDeactivatePipelineInput' :: Id' -> ({ pipelineId :: Id', cancelActive :: Maybe (CancelActive') } -> { pipelineId :: Id', cancelActive :: Maybe (CancelActive') }) -> DeactivatePipelineInput
 ```
 
 Constructs DeactivatePipelineInput's fields from required parameters
@@ -268,7 +268,7 @@ Constructs DeletePipelineInput's fields from required parameters
 
 ``` purescript
 newtype DescribeObjectsInput
-  = DescribeObjectsInput { pipelineId :: Id', objectIds :: IdList', evaluateExpressions :: NullOrUndefined (Boolean), marker :: NullOrUndefined (String) }
+  = DescribeObjectsInput { pipelineId :: Id', objectIds :: IdList', evaluateExpressions :: Maybe (Boolean), marker :: Maybe (String) }
 ```
 
 <p>Contains the parameters for DescribeObjects.</p>
@@ -293,7 +293,7 @@ Constructs DescribeObjectsInput from required parameters
 #### `newDescribeObjectsInput'`
 
 ``` purescript
-newDescribeObjectsInput' :: IdList' -> Id' -> ({ pipelineId :: Id', objectIds :: IdList', evaluateExpressions :: NullOrUndefined (Boolean), marker :: NullOrUndefined (String) } -> { pipelineId :: Id', objectIds :: IdList', evaluateExpressions :: NullOrUndefined (Boolean), marker :: NullOrUndefined (String) }) -> DescribeObjectsInput
+newDescribeObjectsInput' :: IdList' -> Id' -> ({ pipelineId :: Id', objectIds :: IdList', evaluateExpressions :: Maybe (Boolean), marker :: Maybe (String) } -> { pipelineId :: Id', objectIds :: IdList', evaluateExpressions :: Maybe (Boolean), marker :: Maybe (String) }) -> DescribeObjectsInput
 ```
 
 Constructs DescribeObjectsInput's fields from required parameters
@@ -302,7 +302,7 @@ Constructs DescribeObjectsInput's fields from required parameters
 
 ``` purescript
 newtype DescribeObjectsOutput
-  = DescribeObjectsOutput { pipelineObjects :: PipelineObjectList, marker :: NullOrUndefined (String), hasMoreResults :: NullOrUndefined (Boolean) }
+  = DescribeObjectsOutput { pipelineObjects :: PipelineObjectList, marker :: Maybe (String), hasMoreResults :: Maybe (Boolean) }
 ```
 
 <p>Contains the output of DescribeObjects.</p>
@@ -327,7 +327,7 @@ Constructs DescribeObjectsOutput from required parameters
 #### `newDescribeObjectsOutput'`
 
 ``` purescript
-newDescribeObjectsOutput' :: PipelineObjectList -> ({ pipelineObjects :: PipelineObjectList, marker :: NullOrUndefined (String), hasMoreResults :: NullOrUndefined (Boolean) } -> { pipelineObjects :: PipelineObjectList, marker :: NullOrUndefined (String), hasMoreResults :: NullOrUndefined (Boolean) }) -> DescribeObjectsOutput
+newDescribeObjectsOutput' :: PipelineObjectList -> ({ pipelineObjects :: PipelineObjectList, marker :: Maybe (String), hasMoreResults :: Maybe (Boolean) } -> { pipelineObjects :: PipelineObjectList, marker :: Maybe (String), hasMoreResults :: Maybe (Boolean) }) -> DescribeObjectsOutput
 ```
 
 Constructs DescribeObjectsOutput's fields from required parameters
@@ -472,7 +472,7 @@ Constructs EvaluateExpressionOutput's fields from required parameters
 
 ``` purescript
 newtype Field
-  = Field { key :: FieldNameString', stringValue :: NullOrUndefined (FieldStringValue'), refValue :: NullOrUndefined (FieldNameString') }
+  = Field { key :: FieldNameString', stringValue :: Maybe (FieldStringValue'), refValue :: Maybe (FieldNameString') }
 ```
 
 <p>A key-value pair that describes a property of a pipeline object. The value is specified as either a string value (<code>StringValue</code>) or a reference to another object (<code>RefValue</code>) but not as both.</p>
@@ -497,7 +497,7 @@ Constructs Field from required parameters
 #### `newField'`
 
 ``` purescript
-newField' :: FieldNameString' -> ({ key :: FieldNameString', stringValue :: NullOrUndefined (FieldStringValue'), refValue :: NullOrUndefined (FieldNameString') } -> { key :: FieldNameString', stringValue :: NullOrUndefined (FieldStringValue'), refValue :: NullOrUndefined (FieldNameString') }) -> Field
+newField' :: FieldNameString' -> ({ key :: FieldNameString', stringValue :: Maybe (FieldStringValue'), refValue :: Maybe (FieldNameString') } -> { key :: FieldNameString', stringValue :: Maybe (FieldStringValue'), refValue :: Maybe (FieldNameString') }) -> Field
 ```
 
 Constructs Field's fields from required parameters
@@ -506,7 +506,7 @@ Constructs Field's fields from required parameters
 
 ``` purescript
 newtype GetPipelineDefinitionInput
-  = GetPipelineDefinitionInput { pipelineId :: Id', version :: NullOrUndefined (String) }
+  = GetPipelineDefinitionInput { pipelineId :: Id', version :: Maybe (String) }
 ```
 
 <p>Contains the parameters for GetPipelineDefinition.</p>
@@ -531,7 +531,7 @@ Constructs GetPipelineDefinitionInput from required parameters
 #### `newGetPipelineDefinitionInput'`
 
 ``` purescript
-newGetPipelineDefinitionInput' :: Id' -> ({ pipelineId :: Id', version :: NullOrUndefined (String) } -> { pipelineId :: Id', version :: NullOrUndefined (String) }) -> GetPipelineDefinitionInput
+newGetPipelineDefinitionInput' :: Id' -> ({ pipelineId :: Id', version :: Maybe (String) } -> { pipelineId :: Id', version :: Maybe (String) }) -> GetPipelineDefinitionInput
 ```
 
 Constructs GetPipelineDefinitionInput's fields from required parameters
@@ -540,7 +540,7 @@ Constructs GetPipelineDefinitionInput's fields from required parameters
 
 ``` purescript
 newtype GetPipelineDefinitionOutput
-  = GetPipelineDefinitionOutput { pipelineObjects :: NullOrUndefined (PipelineObjectList), parameterObjects :: NullOrUndefined (ParameterObjectList), parameterValues :: NullOrUndefined (ParameterValueList) }
+  = GetPipelineDefinitionOutput { pipelineObjects :: Maybe (PipelineObjectList), parameterObjects :: Maybe (ParameterObjectList), parameterValues :: Maybe (ParameterValueList) }
 ```
 
 <p>Contains the output of GetPipelineDefinition.</p>
@@ -565,7 +565,7 @@ Constructs GetPipelineDefinitionOutput from required parameters
 #### `newGetPipelineDefinitionOutput'`
 
 ``` purescript
-newGetPipelineDefinitionOutput' :: ({ pipelineObjects :: NullOrUndefined (PipelineObjectList), parameterObjects :: NullOrUndefined (ParameterObjectList), parameterValues :: NullOrUndefined (ParameterValueList) } -> { pipelineObjects :: NullOrUndefined (PipelineObjectList), parameterObjects :: NullOrUndefined (ParameterObjectList), parameterValues :: NullOrUndefined (ParameterValueList) }) -> GetPipelineDefinitionOutput
+newGetPipelineDefinitionOutput' :: ({ pipelineObjects :: Maybe (PipelineObjectList), parameterObjects :: Maybe (ParameterObjectList), parameterValues :: Maybe (ParameterValueList) } -> { pipelineObjects :: Maybe (PipelineObjectList), parameterObjects :: Maybe (ParameterObjectList), parameterValues :: Maybe (ParameterValueList) }) -> GetPipelineDefinitionOutput
 ```
 
 Constructs GetPipelineDefinitionOutput's fields from required parameters
@@ -574,7 +574,7 @@ Constructs GetPipelineDefinitionOutput's fields from required parameters
 
 ``` purescript
 newtype InstanceIdentity
-  = InstanceIdentity { document :: NullOrUndefined (String), signature :: NullOrUndefined (String) }
+  = InstanceIdentity { document :: Maybe (String), signature :: Maybe (String) }
 ```
 
 <p><p>Identity information for the EC2 instance that is hosting the task runner. You can get this value by calling a metadata URI from the EC2 instance. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html">Instance Metadata</a> in the <i>Amazon Elastic Compute Cloud User Guide.</i> Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline.</p></p>
@@ -599,7 +599,7 @@ Constructs InstanceIdentity from required parameters
 #### `newInstanceIdentity'`
 
 ``` purescript
-newInstanceIdentity' :: ({ document :: NullOrUndefined (String), signature :: NullOrUndefined (String) } -> { document :: NullOrUndefined (String), signature :: NullOrUndefined (String) }) -> InstanceIdentity
+newInstanceIdentity' :: ({ document :: Maybe (String), signature :: Maybe (String) } -> { document :: Maybe (String), signature :: Maybe (String) }) -> InstanceIdentity
 ```
 
 Constructs InstanceIdentity's fields from required parameters
@@ -608,7 +608,7 @@ Constructs InstanceIdentity's fields from required parameters
 
 ``` purescript
 newtype InternalServiceError
-  = InternalServiceError { message :: NullOrUndefined (ErrorMessage') }
+  = InternalServiceError { message :: Maybe (ErrorMessage') }
 ```
 
 <p>An internal service error occurred.</p>
@@ -633,7 +633,7 @@ Constructs InternalServiceError from required parameters
 #### `newInternalServiceError'`
 
 ``` purescript
-newInternalServiceError' :: ({ message :: NullOrUndefined (ErrorMessage') } -> { message :: NullOrUndefined (ErrorMessage') }) -> InternalServiceError
+newInternalServiceError' :: ({ message :: Maybe (ErrorMessage') } -> { message :: Maybe (ErrorMessage') }) -> InternalServiceError
 ```
 
 Constructs InternalServiceError's fields from required parameters
@@ -642,7 +642,7 @@ Constructs InternalServiceError's fields from required parameters
 
 ``` purescript
 newtype InvalidRequestException
-  = InvalidRequestException { message :: NullOrUndefined (ErrorMessage') }
+  = InvalidRequestException { message :: Maybe (ErrorMessage') }
 ```
 
 <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
@@ -667,7 +667,7 @@ Constructs InvalidRequestException from required parameters
 #### `newInvalidRequestException'`
 
 ``` purescript
-newInvalidRequestException' :: ({ message :: NullOrUndefined (ErrorMessage') } -> { message :: NullOrUndefined (ErrorMessage') }) -> InvalidRequestException
+newInvalidRequestException' :: ({ message :: Maybe (ErrorMessage') } -> { message :: Maybe (ErrorMessage') }) -> InvalidRequestException
 ```
 
 Constructs InvalidRequestException's fields from required parameters
@@ -676,7 +676,7 @@ Constructs InvalidRequestException's fields from required parameters
 
 ``` purescript
 newtype ListPipelinesInput
-  = ListPipelinesInput { marker :: NullOrUndefined (String) }
+  = ListPipelinesInput { marker :: Maybe (String) }
 ```
 
 <p>Contains the parameters for ListPipelines.</p>
@@ -701,7 +701,7 @@ Constructs ListPipelinesInput from required parameters
 #### `newListPipelinesInput'`
 
 ``` purescript
-newListPipelinesInput' :: ({ marker :: NullOrUndefined (String) } -> { marker :: NullOrUndefined (String) }) -> ListPipelinesInput
+newListPipelinesInput' :: ({ marker :: Maybe (String) } -> { marker :: Maybe (String) }) -> ListPipelinesInput
 ```
 
 Constructs ListPipelinesInput's fields from required parameters
@@ -710,7 +710,7 @@ Constructs ListPipelinesInput's fields from required parameters
 
 ``` purescript
 newtype ListPipelinesOutput
-  = ListPipelinesOutput { pipelineIdList :: PipelineList', marker :: NullOrUndefined (String), hasMoreResults :: NullOrUndefined (Boolean) }
+  = ListPipelinesOutput { pipelineIdList :: PipelineList', marker :: Maybe (String), hasMoreResults :: Maybe (Boolean) }
 ```
 
 <p>Contains the output of ListPipelines.</p>
@@ -735,7 +735,7 @@ Constructs ListPipelinesOutput from required parameters
 #### `newListPipelinesOutput'`
 
 ``` purescript
-newListPipelinesOutput' :: PipelineList' -> ({ pipelineIdList :: PipelineList', marker :: NullOrUndefined (String), hasMoreResults :: NullOrUndefined (Boolean) } -> { pipelineIdList :: PipelineList', marker :: NullOrUndefined (String), hasMoreResults :: NullOrUndefined (Boolean) }) -> ListPipelinesOutput
+newListPipelinesOutput' :: PipelineList' -> ({ pipelineIdList :: PipelineList', marker :: Maybe (String), hasMoreResults :: Maybe (Boolean) } -> { pipelineIdList :: PipelineList', marker :: Maybe (String), hasMoreResults :: Maybe (Boolean) }) -> ListPipelinesOutput
 ```
 
 Constructs ListPipelinesOutput's fields from required parameters
@@ -744,7 +744,7 @@ Constructs ListPipelinesOutput's fields from required parameters
 
 ``` purescript
 newtype Operator
-  = Operator { "type" :: NullOrUndefined (OperatorType), values :: NullOrUndefined (StringList') }
+  = Operator { "type" :: Maybe (OperatorType), values :: Maybe (StringList') }
 ```
 
 <p>Contains a logical operation for comparing the value of a field with a specified value.</p>
@@ -769,7 +769,7 @@ Constructs Operator from required parameters
 #### `newOperator'`
 
 ``` purescript
-newOperator' :: ({ "type" :: NullOrUndefined (OperatorType), values :: NullOrUndefined (StringList') } -> { "type" :: NullOrUndefined (OperatorType), values :: NullOrUndefined (StringList') }) -> Operator
+newOperator' :: ({ "type" :: Maybe (OperatorType), values :: Maybe (StringList') } -> { "type" :: Maybe (OperatorType), values :: Maybe (StringList') }) -> Operator
 ```
 
 Constructs Operator's fields from required parameters
@@ -944,7 +944,7 @@ Encode ParameterValueList
 
 ``` purescript
 newtype PipelineDeletedException
-  = PipelineDeletedException { message :: NullOrUndefined (ErrorMessage') }
+  = PipelineDeletedException { message :: Maybe (ErrorMessage') }
 ```
 
 <p>The specified pipeline has been deleted.</p>
@@ -969,7 +969,7 @@ Constructs PipelineDeletedException from required parameters
 #### `newPipelineDeletedException'`
 
 ``` purescript
-newPipelineDeletedException' :: ({ message :: NullOrUndefined (ErrorMessage') } -> { message :: NullOrUndefined (ErrorMessage') }) -> PipelineDeletedException
+newPipelineDeletedException' :: ({ message :: Maybe (ErrorMessage') } -> { message :: Maybe (ErrorMessage') }) -> PipelineDeletedException
 ```
 
 Constructs PipelineDeletedException's fields from required parameters
@@ -978,7 +978,7 @@ Constructs PipelineDeletedException's fields from required parameters
 
 ``` purescript
 newtype PipelineDescription
-  = PipelineDescription { pipelineId :: Id', name :: Id', fields :: FieldList', description :: NullOrUndefined (String), tags :: NullOrUndefined (TagList') }
+  = PipelineDescription { pipelineId :: Id', name :: Id', fields :: FieldList', description :: Maybe (String), tags :: Maybe (TagList') }
 ```
 
 <p>Contains pipeline metadata.</p>
@@ -1003,7 +1003,7 @@ Constructs PipelineDescription from required parameters
 #### `newPipelineDescription'`
 
 ``` purescript
-newPipelineDescription' :: FieldList' -> Id' -> Id' -> ({ pipelineId :: Id', name :: Id', fields :: FieldList', description :: NullOrUndefined (String), tags :: NullOrUndefined (TagList') } -> { pipelineId :: Id', name :: Id', fields :: FieldList', description :: NullOrUndefined (String), tags :: NullOrUndefined (TagList') }) -> PipelineDescription
+newPipelineDescription' :: FieldList' -> Id' -> Id' -> ({ pipelineId :: Id', name :: Id', fields :: FieldList', description :: Maybe (String), tags :: Maybe (TagList') } -> { pipelineId :: Id', name :: Id', fields :: FieldList', description :: Maybe (String), tags :: Maybe (TagList') }) -> PipelineDescription
 ```
 
 Constructs PipelineDescription's fields from required parameters
@@ -1028,7 +1028,7 @@ Encode PipelineDescriptionList
 
 ``` purescript
 newtype PipelineIdName
-  = PipelineIdName { id :: NullOrUndefined (Id'), name :: NullOrUndefined (Id') }
+  = PipelineIdName { id :: Maybe (Id'), name :: Maybe (Id') }
 ```
 
 <p>Contains the name and identifier of a pipeline.</p>
@@ -1053,7 +1053,7 @@ Constructs PipelineIdName from required parameters
 #### `newPipelineIdName'`
 
 ``` purescript
-newPipelineIdName' :: ({ id :: NullOrUndefined (Id'), name :: NullOrUndefined (Id') } -> { id :: NullOrUndefined (Id'), name :: NullOrUndefined (Id') }) -> PipelineIdName
+newPipelineIdName' :: ({ id :: Maybe (Id'), name :: Maybe (Id') } -> { id :: Maybe (Id'), name :: Maybe (Id') }) -> PipelineIdName
 ```
 
 Constructs PipelineIdName's fields from required parameters
@@ -1062,7 +1062,7 @@ Constructs PipelineIdName's fields from required parameters
 
 ``` purescript
 newtype PipelineNotFoundException
-  = PipelineNotFoundException { message :: NullOrUndefined (ErrorMessage') }
+  = PipelineNotFoundException { message :: Maybe (ErrorMessage') }
 ```
 
 <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
@@ -1087,7 +1087,7 @@ Constructs PipelineNotFoundException from required parameters
 #### `newPipelineNotFoundException'`
 
 ``` purescript
-newPipelineNotFoundException' :: ({ message :: NullOrUndefined (ErrorMessage') } -> { message :: NullOrUndefined (ErrorMessage') }) -> PipelineNotFoundException
+newPipelineNotFoundException' :: ({ message :: Maybe (ErrorMessage') } -> { message :: Maybe (ErrorMessage') }) -> PipelineNotFoundException
 ```
 
 Constructs PipelineNotFoundException's fields from required parameters
@@ -1162,7 +1162,7 @@ Encode PipelineObjectMap
 
 ``` purescript
 newtype PollForTaskInput
-  = PollForTaskInput { workerGroup :: String, hostname :: NullOrUndefined (Id'), instanceIdentity :: NullOrUndefined (InstanceIdentity) }
+  = PollForTaskInput { workerGroup :: String, hostname :: Maybe (Id'), instanceIdentity :: Maybe (InstanceIdentity) }
 ```
 
 <p>Contains the parameters for PollForTask.</p>
@@ -1187,7 +1187,7 @@ Constructs PollForTaskInput from required parameters
 #### `newPollForTaskInput'`
 
 ``` purescript
-newPollForTaskInput' :: String -> ({ workerGroup :: String, hostname :: NullOrUndefined (Id'), instanceIdentity :: NullOrUndefined (InstanceIdentity) } -> { workerGroup :: String, hostname :: NullOrUndefined (Id'), instanceIdentity :: NullOrUndefined (InstanceIdentity) }) -> PollForTaskInput
+newPollForTaskInput' :: String -> ({ workerGroup :: String, hostname :: Maybe (Id'), instanceIdentity :: Maybe (InstanceIdentity) } -> { workerGroup :: String, hostname :: Maybe (Id'), instanceIdentity :: Maybe (InstanceIdentity) }) -> PollForTaskInput
 ```
 
 Constructs PollForTaskInput's fields from required parameters
@@ -1196,7 +1196,7 @@ Constructs PollForTaskInput's fields from required parameters
 
 ``` purescript
 newtype PollForTaskOutput
-  = PollForTaskOutput { taskObject :: NullOrUndefined (TaskObject) }
+  = PollForTaskOutput { taskObject :: Maybe (TaskObject) }
 ```
 
 <p>Contains the output of PollForTask.</p>
@@ -1221,7 +1221,7 @@ Constructs PollForTaskOutput from required parameters
 #### `newPollForTaskOutput'`
 
 ``` purescript
-newPollForTaskOutput' :: ({ taskObject :: NullOrUndefined (TaskObject) } -> { taskObject :: NullOrUndefined (TaskObject) }) -> PollForTaskOutput
+newPollForTaskOutput' :: ({ taskObject :: Maybe (TaskObject) } -> { taskObject :: Maybe (TaskObject) }) -> PollForTaskOutput
 ```
 
 Constructs PollForTaskOutput's fields from required parameters
@@ -1230,7 +1230,7 @@ Constructs PollForTaskOutput's fields from required parameters
 
 ``` purescript
 newtype PutPipelineDefinitionInput
-  = PutPipelineDefinitionInput { pipelineId :: Id', pipelineObjects :: PipelineObjectList, parameterObjects :: NullOrUndefined (ParameterObjectList), parameterValues :: NullOrUndefined (ParameterValueList) }
+  = PutPipelineDefinitionInput { pipelineId :: Id', pipelineObjects :: PipelineObjectList, parameterObjects :: Maybe (ParameterObjectList), parameterValues :: Maybe (ParameterValueList) }
 ```
 
 <p>Contains the parameters for PutPipelineDefinition.</p>
@@ -1255,7 +1255,7 @@ Constructs PutPipelineDefinitionInput from required parameters
 #### `newPutPipelineDefinitionInput'`
 
 ``` purescript
-newPutPipelineDefinitionInput' :: Id' -> PipelineObjectList -> ({ pipelineId :: Id', pipelineObjects :: PipelineObjectList, parameterObjects :: NullOrUndefined (ParameterObjectList), parameterValues :: NullOrUndefined (ParameterValueList) } -> { pipelineId :: Id', pipelineObjects :: PipelineObjectList, parameterObjects :: NullOrUndefined (ParameterObjectList), parameterValues :: NullOrUndefined (ParameterValueList) }) -> PutPipelineDefinitionInput
+newPutPipelineDefinitionInput' :: Id' -> PipelineObjectList -> ({ pipelineId :: Id', pipelineObjects :: PipelineObjectList, parameterObjects :: Maybe (ParameterObjectList), parameterValues :: Maybe (ParameterValueList) } -> { pipelineId :: Id', pipelineObjects :: PipelineObjectList, parameterObjects :: Maybe (ParameterObjectList), parameterValues :: Maybe (ParameterValueList) }) -> PutPipelineDefinitionInput
 ```
 
 Constructs PutPipelineDefinitionInput's fields from required parameters
@@ -1264,7 +1264,7 @@ Constructs PutPipelineDefinitionInput's fields from required parameters
 
 ``` purescript
 newtype PutPipelineDefinitionOutput
-  = PutPipelineDefinitionOutput { validationErrors :: NullOrUndefined (ValidationErrors), validationWarnings :: NullOrUndefined (ValidationWarnings), errored :: Boolean }
+  = PutPipelineDefinitionOutput { validationErrors :: Maybe (ValidationErrors), validationWarnings :: Maybe (ValidationWarnings), errored :: Boolean }
 ```
 
 <p>Contains the output of PutPipelineDefinition.</p>
@@ -1289,7 +1289,7 @@ Constructs PutPipelineDefinitionOutput from required parameters
 #### `newPutPipelineDefinitionOutput'`
 
 ``` purescript
-newPutPipelineDefinitionOutput' :: Boolean -> ({ validationErrors :: NullOrUndefined (ValidationErrors), validationWarnings :: NullOrUndefined (ValidationWarnings), errored :: Boolean } -> { validationErrors :: NullOrUndefined (ValidationErrors), validationWarnings :: NullOrUndefined (ValidationWarnings), errored :: Boolean }) -> PutPipelineDefinitionOutput
+newPutPipelineDefinitionOutput' :: Boolean -> ({ validationErrors :: Maybe (ValidationErrors), validationWarnings :: Maybe (ValidationWarnings), errored :: Boolean } -> { validationErrors :: Maybe (ValidationErrors), validationWarnings :: Maybe (ValidationWarnings), errored :: Boolean }) -> PutPipelineDefinitionOutput
 ```
 
 Constructs PutPipelineDefinitionOutput's fields from required parameters
@@ -1298,7 +1298,7 @@ Constructs PutPipelineDefinitionOutput's fields from required parameters
 
 ``` purescript
 newtype Query
-  = Query { selectors :: NullOrUndefined (SelectorList) }
+  = Query { selectors :: Maybe (SelectorList) }
 ```
 
 <p>Defines the query to run against an object.</p>
@@ -1323,7 +1323,7 @@ Constructs Query from required parameters
 #### `newQuery'`
 
 ``` purescript
-newQuery' :: ({ selectors :: NullOrUndefined (SelectorList) } -> { selectors :: NullOrUndefined (SelectorList) }) -> Query
+newQuery' :: ({ selectors :: Maybe (SelectorList) } -> { selectors :: Maybe (SelectorList) }) -> Query
 ```
 
 Constructs Query's fields from required parameters
@@ -1332,7 +1332,7 @@ Constructs Query's fields from required parameters
 
 ``` purescript
 newtype QueryObjectsInput
-  = QueryObjectsInput { pipelineId :: Id', query :: NullOrUndefined (Query), sphere :: String, marker :: NullOrUndefined (String), limit :: NullOrUndefined (Int) }
+  = QueryObjectsInput { pipelineId :: Id', query :: Maybe (Query), sphere :: String, marker :: Maybe (String), limit :: Maybe (Int) }
 ```
 
 <p>Contains the parameters for QueryObjects.</p>
@@ -1357,7 +1357,7 @@ Constructs QueryObjectsInput from required parameters
 #### `newQueryObjectsInput'`
 
 ``` purescript
-newQueryObjectsInput' :: Id' -> String -> ({ pipelineId :: Id', query :: NullOrUndefined (Query), sphere :: String, marker :: NullOrUndefined (String), limit :: NullOrUndefined (Int) } -> { pipelineId :: Id', query :: NullOrUndefined (Query), sphere :: String, marker :: NullOrUndefined (String), limit :: NullOrUndefined (Int) }) -> QueryObjectsInput
+newQueryObjectsInput' :: Id' -> String -> ({ pipelineId :: Id', query :: Maybe (Query), sphere :: String, marker :: Maybe (String), limit :: Maybe (Int) } -> { pipelineId :: Id', query :: Maybe (Query), sphere :: String, marker :: Maybe (String), limit :: Maybe (Int) }) -> QueryObjectsInput
 ```
 
 Constructs QueryObjectsInput's fields from required parameters
@@ -1366,7 +1366,7 @@ Constructs QueryObjectsInput's fields from required parameters
 
 ``` purescript
 newtype QueryObjectsOutput
-  = QueryObjectsOutput { ids :: NullOrUndefined (IdList'), marker :: NullOrUndefined (String), hasMoreResults :: NullOrUndefined (Boolean) }
+  = QueryObjectsOutput { ids :: Maybe (IdList'), marker :: Maybe (String), hasMoreResults :: Maybe (Boolean) }
 ```
 
 <p>Contains the output of QueryObjects.</p>
@@ -1391,7 +1391,7 @@ Constructs QueryObjectsOutput from required parameters
 #### `newQueryObjectsOutput'`
 
 ``` purescript
-newQueryObjectsOutput' :: ({ ids :: NullOrUndefined (IdList'), marker :: NullOrUndefined (String), hasMoreResults :: NullOrUndefined (Boolean) } -> { ids :: NullOrUndefined (IdList'), marker :: NullOrUndefined (String), hasMoreResults :: NullOrUndefined (Boolean) }) -> QueryObjectsOutput
+newQueryObjectsOutput' :: ({ ids :: Maybe (IdList'), marker :: Maybe (String), hasMoreResults :: Maybe (Boolean) } -> { ids :: Maybe (IdList'), marker :: Maybe (String), hasMoreResults :: Maybe (Boolean) }) -> QueryObjectsOutput
 ```
 
 Constructs QueryObjectsOutput's fields from required parameters
@@ -1452,7 +1452,7 @@ Encode RemoveTagsOutput
 
 ``` purescript
 newtype ReportTaskProgressInput
-  = ReportTaskProgressInput { taskId :: TaskId', fields :: NullOrUndefined (FieldList') }
+  = ReportTaskProgressInput { taskId :: TaskId', fields :: Maybe (FieldList') }
 ```
 
 <p>Contains the parameters for ReportTaskProgress.</p>
@@ -1477,7 +1477,7 @@ Constructs ReportTaskProgressInput from required parameters
 #### `newReportTaskProgressInput'`
 
 ``` purescript
-newReportTaskProgressInput' :: TaskId' -> ({ taskId :: TaskId', fields :: NullOrUndefined (FieldList') } -> { taskId :: TaskId', fields :: NullOrUndefined (FieldList') }) -> ReportTaskProgressInput
+newReportTaskProgressInput' :: TaskId' -> ({ taskId :: TaskId', fields :: Maybe (FieldList') } -> { taskId :: TaskId', fields :: Maybe (FieldList') }) -> ReportTaskProgressInput
 ```
 
 Constructs ReportTaskProgressInput's fields from required parameters
@@ -1520,7 +1520,7 @@ Constructs ReportTaskProgressOutput's fields from required parameters
 
 ``` purescript
 newtype ReportTaskRunnerHeartbeatInput
-  = ReportTaskRunnerHeartbeatInput { taskrunnerId :: Id', workerGroup :: NullOrUndefined (String), hostname :: NullOrUndefined (Id') }
+  = ReportTaskRunnerHeartbeatInput { taskrunnerId :: Id', workerGroup :: Maybe (String), hostname :: Maybe (Id') }
 ```
 
 <p>Contains the parameters for ReportTaskRunnerHeartbeat.</p>
@@ -1545,7 +1545,7 @@ Constructs ReportTaskRunnerHeartbeatInput from required parameters
 #### `newReportTaskRunnerHeartbeatInput'`
 
 ``` purescript
-newReportTaskRunnerHeartbeatInput' :: Id' -> ({ taskrunnerId :: Id', workerGroup :: NullOrUndefined (String), hostname :: NullOrUndefined (Id') } -> { taskrunnerId :: Id', workerGroup :: NullOrUndefined (String), hostname :: NullOrUndefined (Id') }) -> ReportTaskRunnerHeartbeatInput
+newReportTaskRunnerHeartbeatInput' :: Id' -> ({ taskrunnerId :: Id', workerGroup :: Maybe (String), hostname :: Maybe (Id') } -> { taskrunnerId :: Id', workerGroup :: Maybe (String), hostname :: Maybe (Id') }) -> ReportTaskRunnerHeartbeatInput
 ```
 
 Constructs ReportTaskRunnerHeartbeatInput's fields from required parameters
@@ -1588,7 +1588,7 @@ Constructs ReportTaskRunnerHeartbeatOutput's fields from required parameters
 
 ``` purescript
 newtype Selector
-  = Selector { fieldName :: NullOrUndefined (String), operator :: NullOrUndefined (Operator) }
+  = Selector { fieldName :: Maybe (String), operator :: Maybe (Operator) }
 ```
 
 <p>A comparision that is used to determine whether a query should return this object.</p>
@@ -1613,7 +1613,7 @@ Constructs Selector from required parameters
 #### `newSelector'`
 
 ``` purescript
-newSelector' :: ({ fieldName :: NullOrUndefined (String), operator :: NullOrUndefined (Operator) } -> { fieldName :: NullOrUndefined (String), operator :: NullOrUndefined (Operator) }) -> Selector
+newSelector' :: ({ fieldName :: Maybe (String), operator :: Maybe (Operator) } -> { fieldName :: Maybe (String), operator :: Maybe (Operator) }) -> Selector
 ```
 
 Constructs Selector's fields from required parameters
@@ -1674,7 +1674,7 @@ Constructs SetStatusInput's fields from required parameters
 
 ``` purescript
 newtype SetTaskStatusInput
-  = SetTaskStatusInput { taskId :: TaskId', taskStatus :: TaskStatus, errorId :: NullOrUndefined (String), errorMessage :: NullOrUndefined (ErrorMessage'), errorStackTrace :: NullOrUndefined (String) }
+  = SetTaskStatusInput { taskId :: TaskId', taskStatus :: TaskStatus, errorId :: Maybe (String), errorMessage :: Maybe (ErrorMessage'), errorStackTrace :: Maybe (String) }
 ```
 
 <p>Contains the parameters for SetTaskStatus.</p>
@@ -1699,7 +1699,7 @@ Constructs SetTaskStatusInput from required parameters
 #### `newSetTaskStatusInput'`
 
 ``` purescript
-newSetTaskStatusInput' :: TaskId' -> TaskStatus -> ({ taskId :: TaskId', taskStatus :: TaskStatus, errorId :: NullOrUndefined (String), errorMessage :: NullOrUndefined (ErrorMessage'), errorStackTrace :: NullOrUndefined (String) } -> { taskId :: TaskId', taskStatus :: TaskStatus, errorId :: NullOrUndefined (String), errorMessage :: NullOrUndefined (ErrorMessage'), errorStackTrace :: NullOrUndefined (String) }) -> SetTaskStatusInput
+newSetTaskStatusInput' :: TaskId' -> TaskStatus -> ({ taskId :: TaskId', taskStatus :: TaskStatus, errorId :: Maybe (String), errorMessage :: Maybe (ErrorMessage'), errorStackTrace :: Maybe (String) } -> { taskId :: TaskId', taskStatus :: TaskStatus, errorId :: Maybe (String), errorMessage :: Maybe (ErrorMessage'), errorStackTrace :: Maybe (String) }) -> SetTaskStatusInput
 ```
 
 Constructs SetTaskStatusInput's fields from required parameters
@@ -1760,7 +1760,7 @@ Constructs Tag's fields from required parameters
 
 ``` purescript
 newtype TaskNotFoundException
-  = TaskNotFoundException { message :: NullOrUndefined (ErrorMessage') }
+  = TaskNotFoundException { message :: Maybe (ErrorMessage') }
 ```
 
 <p>The specified task was not found. </p>
@@ -1785,7 +1785,7 @@ Constructs TaskNotFoundException from required parameters
 #### `newTaskNotFoundException'`
 
 ``` purescript
-newTaskNotFoundException' :: ({ message :: NullOrUndefined (ErrorMessage') } -> { message :: NullOrUndefined (ErrorMessage') }) -> TaskNotFoundException
+newTaskNotFoundException' :: ({ message :: Maybe (ErrorMessage') } -> { message :: Maybe (ErrorMessage') }) -> TaskNotFoundException
 ```
 
 Constructs TaskNotFoundException's fields from required parameters
@@ -1794,7 +1794,7 @@ Constructs TaskNotFoundException's fields from required parameters
 
 ``` purescript
 newtype TaskObject
-  = TaskObject { taskId :: NullOrUndefined (TaskId'), pipelineId :: NullOrUndefined (Id'), attemptId :: NullOrUndefined (Id'), objects :: NullOrUndefined (PipelineObjectMap) }
+  = TaskObject { taskId :: Maybe (TaskId'), pipelineId :: Maybe (Id'), attemptId :: Maybe (Id'), objects :: Maybe (PipelineObjectMap) }
 ```
 
 <p>Contains information about a pipeline task that is assigned to a task runner.</p>
@@ -1819,7 +1819,7 @@ Constructs TaskObject from required parameters
 #### `newTaskObject'`
 
 ``` purescript
-newTaskObject' :: ({ taskId :: NullOrUndefined (TaskId'), pipelineId :: NullOrUndefined (Id'), attemptId :: NullOrUndefined (Id'), objects :: NullOrUndefined (PipelineObjectMap) } -> { taskId :: NullOrUndefined (TaskId'), pipelineId :: NullOrUndefined (Id'), attemptId :: NullOrUndefined (Id'), objects :: NullOrUndefined (PipelineObjectMap) }) -> TaskObject
+newTaskObject' :: ({ taskId :: Maybe (TaskId'), pipelineId :: Maybe (Id'), attemptId :: Maybe (Id'), objects :: Maybe (PipelineObjectMap) } -> { taskId :: Maybe (TaskId'), pipelineId :: Maybe (Id'), attemptId :: Maybe (Id'), objects :: Maybe (PipelineObjectMap) }) -> TaskObject
 ```
 
 Constructs TaskObject's fields from required parameters
@@ -1844,7 +1844,7 @@ Encode TaskStatus
 
 ``` purescript
 newtype ValidatePipelineDefinitionInput
-  = ValidatePipelineDefinitionInput { pipelineId :: Id', pipelineObjects :: PipelineObjectList, parameterObjects :: NullOrUndefined (ParameterObjectList), parameterValues :: NullOrUndefined (ParameterValueList) }
+  = ValidatePipelineDefinitionInput { pipelineId :: Id', pipelineObjects :: PipelineObjectList, parameterObjects :: Maybe (ParameterObjectList), parameterValues :: Maybe (ParameterValueList) }
 ```
 
 <p>Contains the parameters for ValidatePipelineDefinition.</p>
@@ -1869,7 +1869,7 @@ Constructs ValidatePipelineDefinitionInput from required parameters
 #### `newValidatePipelineDefinitionInput'`
 
 ``` purescript
-newValidatePipelineDefinitionInput' :: Id' -> PipelineObjectList -> ({ pipelineId :: Id', pipelineObjects :: PipelineObjectList, parameterObjects :: NullOrUndefined (ParameterObjectList), parameterValues :: NullOrUndefined (ParameterValueList) } -> { pipelineId :: Id', pipelineObjects :: PipelineObjectList, parameterObjects :: NullOrUndefined (ParameterObjectList), parameterValues :: NullOrUndefined (ParameterValueList) }) -> ValidatePipelineDefinitionInput
+newValidatePipelineDefinitionInput' :: Id' -> PipelineObjectList -> ({ pipelineId :: Id', pipelineObjects :: PipelineObjectList, parameterObjects :: Maybe (ParameterObjectList), parameterValues :: Maybe (ParameterValueList) } -> { pipelineId :: Id', pipelineObjects :: PipelineObjectList, parameterObjects :: Maybe (ParameterObjectList), parameterValues :: Maybe (ParameterValueList) }) -> ValidatePipelineDefinitionInput
 ```
 
 Constructs ValidatePipelineDefinitionInput's fields from required parameters
@@ -1878,7 +1878,7 @@ Constructs ValidatePipelineDefinitionInput's fields from required parameters
 
 ``` purescript
 newtype ValidatePipelineDefinitionOutput
-  = ValidatePipelineDefinitionOutput { validationErrors :: NullOrUndefined (ValidationErrors), validationWarnings :: NullOrUndefined (ValidationWarnings), errored :: Boolean }
+  = ValidatePipelineDefinitionOutput { validationErrors :: Maybe (ValidationErrors), validationWarnings :: Maybe (ValidationWarnings), errored :: Boolean }
 ```
 
 <p>Contains the output of ValidatePipelineDefinition.</p>
@@ -1903,7 +1903,7 @@ Constructs ValidatePipelineDefinitionOutput from required parameters
 #### `newValidatePipelineDefinitionOutput'`
 
 ``` purescript
-newValidatePipelineDefinitionOutput' :: Boolean -> ({ validationErrors :: NullOrUndefined (ValidationErrors), validationWarnings :: NullOrUndefined (ValidationWarnings), errored :: Boolean } -> { validationErrors :: NullOrUndefined (ValidationErrors), validationWarnings :: NullOrUndefined (ValidationWarnings), errored :: Boolean }) -> ValidatePipelineDefinitionOutput
+newValidatePipelineDefinitionOutput' :: Boolean -> ({ validationErrors :: Maybe (ValidationErrors), validationWarnings :: Maybe (ValidationWarnings), errored :: Boolean } -> { validationErrors :: Maybe (ValidationErrors), validationWarnings :: Maybe (ValidationWarnings), errored :: Boolean }) -> ValidatePipelineDefinitionOutput
 ```
 
 Constructs ValidatePipelineDefinitionOutput's fields from required parameters
@@ -1912,7 +1912,7 @@ Constructs ValidatePipelineDefinitionOutput's fields from required parameters
 
 ``` purescript
 newtype ValidationError
-  = ValidationError { id :: NullOrUndefined (Id'), errors :: NullOrUndefined (ValidationMessages') }
+  = ValidationError { id :: Maybe (Id'), errors :: Maybe (ValidationMessages') }
 ```
 
 <p>Defines a validation error. Validation errors prevent pipeline activation. The set of validation errors that can be returned are defined by AWS Data Pipeline.</p>
@@ -1937,7 +1937,7 @@ Constructs ValidationError from required parameters
 #### `newValidationError'`
 
 ``` purescript
-newValidationError' :: ({ id :: NullOrUndefined (Id'), errors :: NullOrUndefined (ValidationMessages') } -> { id :: NullOrUndefined (Id'), errors :: NullOrUndefined (ValidationMessages') }) -> ValidationError
+newValidationError' :: ({ id :: Maybe (Id'), errors :: Maybe (ValidationMessages') } -> { id :: Maybe (Id'), errors :: Maybe (ValidationMessages') }) -> ValidationError
 ```
 
 Constructs ValidationError's fields from required parameters
@@ -1962,7 +1962,7 @@ Encode ValidationErrors
 
 ``` purescript
 newtype ValidationWarning
-  = ValidationWarning { id :: NullOrUndefined (Id'), warnings :: NullOrUndefined (ValidationMessages') }
+  = ValidationWarning { id :: Maybe (Id'), warnings :: Maybe (ValidationMessages') }
 ```
 
 <p>Defines a validation warning. Validation warnings do not prevent pipeline activation. The set of validation warnings that can be returned are defined by AWS Data Pipeline.</p>
@@ -1987,7 +1987,7 @@ Constructs ValidationWarning from required parameters
 #### `newValidationWarning'`
 
 ``` purescript
-newValidationWarning' :: ({ id :: NullOrUndefined (Id'), warnings :: NullOrUndefined (ValidationMessages') } -> { id :: NullOrUndefined (Id'), warnings :: NullOrUndefined (ValidationMessages') }) -> ValidationWarning
+newValidationWarning' :: ({ id :: Maybe (Id'), warnings :: Maybe (ValidationMessages') } -> { id :: Maybe (Id'), warnings :: Maybe (ValidationMessages') }) -> ValidationWarning
 ```
 
 Constructs ValidationWarning's fields from required parameters
